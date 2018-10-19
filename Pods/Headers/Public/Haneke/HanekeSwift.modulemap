@@ -1,0 +1,6 @@
+module Haneke {
+  umbrella header "HanekeSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

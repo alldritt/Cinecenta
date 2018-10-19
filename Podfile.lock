@@ -1,0 +1,29 @@
+PODS:
+  - Eureka (4.3.0)
+  - HanekeSwift (1.1)
+
+DEPENDENCIES:
+  - Eureka (>= 4.0.0)
+  - HanekeSwift (from `https://github.com/aporat/HanekeSwift`, branch `master`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Eureka
+
+EXTERNAL SOURCES:
+  HanekeSwift:
+    :branch: master
+    :git: https://github.com/aporat/HanekeSwift
+
+CHECKOUT OPTIONS:
+  HanekeSwift:
+    :commit: ec058bf8ddda14fd4194fad8e5fc5657b6dfbc21
+    :git: https://github.com/aporat/HanekeSwift
+
+SPEC CHECKSUMS:
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  HanekeSwift: cb662a1f22b10ff3ff1d7b5030ae451da5d93831
+
+PODFILE CHECKSUM: 93e26d89b078c00a9601dbc77bbe37a25781c1c8
+
+COCOAPODS: 1.5.3
