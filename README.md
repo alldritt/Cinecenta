@@ -4,7 +4,7 @@ Cineceta is a movie theatre run by the Unicersity of Victorual Student Society. 
 
 Anyway, their web site is fine, but I wanted a simple means of seeing what is showing tonight.  
 
-![Screenshot](file:/Users/mall/Desktop/Cinecenta.png)
+![Screenshot](https://github.com/alldritt/Cinecenta/blob/master/Screenshots/Cinecenta.png?raw=true)
 
 The app supports dynamic type using a standard UITableViewCell.
 
