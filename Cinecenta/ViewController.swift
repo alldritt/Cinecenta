@@ -14,8 +14,13 @@ class ViewController: UITableViewController {
 
     private var today: [[String:AnyObject]]?
     private var tomorrow: [[String:AnyObject]]?
+    private var timer: Timer?
     private var shownURL: URL?
 
+    deinit {
+        timer?.invalidate()
+    }
+    
     private func scrapeSite(ignoreCache: Bool = true) {
         refreshControl?.beginRefreshing()
         if ignoreCache {
@@ -34,6 +39,17 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 6 /* 6 hours */,
+                                     repeats: false,
+                                     block: { [unowned self] (timer) in
+                                        self.scrapeSite(ignoreCache: true)
+                                        self.timer = Timer.scheduledTimer(withTimeInterval: 60 * 60 * 24, /* 1 day */
+                                                                          repeats: true,
+                                                                          block: { [unowned self] (timer) in
+                                                self.scrapeSite(ignoreCache: true)
+                                        })
+        })
+
         //  Configure pull-to-refresh
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
