@@ -21,9 +21,9 @@ class ViewController: UITableViewController {
         timer?.invalidate()
     }
     
-    private func scrapeSite(ignoreCache: Bool = true) {
+    private func scrapeSite(flushCache: Bool = true) {
         refreshControl?.beginRefreshing()
-        if ignoreCache {
+        if flushCache {
             Shared.JSONCache.remove(key: cinecentaURL.absoluteString) // force a reload!
         }
         Shared.JSONCache.fetch(URL: cinecentaURL).onSuccess { json in
@@ -39,14 +39,14 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 6 /* 6 hours */,
+        timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 6 /* tomorrow + 3 hours */,
                                      repeats: false,
                                      block: { [unowned self] (timer) in
-                                        self.scrapeSite(ignoreCache: true)
+                                        self.scrapeSite(flushCache: true)
                                         self.timer = Timer.scheduledTimer(withTimeInterval: 60 * 60 * 24, /* 1 day */
                                                                           repeats: true,
                                                                           block: { [unowned self] (timer) in
-                                                self.scrapeSite(ignoreCache: true)
+                                                self.scrapeSite(flushCache: true)
                                         })
         })
 
@@ -73,7 +73,7 @@ class ViewController: UITableViewController {
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        scrapeSite(ignoreCache: true)
+        scrapeSite(flushCache: true)
     }
 
     public func refresh() {
