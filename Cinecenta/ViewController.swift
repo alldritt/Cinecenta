@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
 
     private var today: [[String:AnyObject]]?
     private var tomorrow: [[String:AnyObject]]?
+    private var shownURL: URL?
 
     private func scrapeSite(ignoreCache: Bool = true) {
         refreshControl?.beginRefreshing()
@@ -49,6 +50,12 @@ class ViewController: UITableViewController {
         scrapeSite(ignoreCache: true)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        shownURL = nil
+    }
+    
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         scrapeSite(ignoreCache: true)
     }
@@ -57,6 +64,33 @@ class ViewController: UITableViewController {
         scrapeSite()
     }
     
+    public func show(key: String) {
+        guard let aShow = showFor(key: key) else { return }
+        
+        show(show:aShow)
+    }
+
+    public func show(show: [String:AnyObject]) {
+        print("show: \(show)")
+        
+        let url = URL(string:show["href"] as! String)!
+        guard url != shownURL else { return }
+        
+        if shownURL != nil {
+            presentedViewController?.dismiss(animated: false, completion: {
+                let viewController = SFSafariViewController(url: url)
+                
+                self.present(viewController, animated: true, completion: nil)
+            })
+        }
+        else {
+            let viewController = SFSafariViewController(url: url)
+            
+            present(viewController, animated: true, completion: nil)
+        }
+        shownURL = url
+    }
+
     private func showsForSection(section: Int) -> [[String:AnyObject]]? {
         switch section {
         case 0:
@@ -76,11 +110,38 @@ class ViewController: UITableViewController {
         }
     }
     
-    private func showForIndexPath(indexPath: IndexPath) -> [String:AnyObject]? {
+    private func showFor(indexPath: IndexPath) -> [String:AnyObject]? {
         guard let shows = showsForSection(section: indexPath.section) else { return nil }
         let show = shows[indexPath.row]
         
         return show
+    }
+    
+    private func showFor(key: String) -> [String:AnyObject]? {
+        if let today = today {
+            for show in today {
+                let title = show["title"] as! String
+                let times = show["times"] as! String
+                let showKey = "\(title).\(times)"
+                
+                if key == showKey {
+                    return show
+                }
+            }
+        }
+        if let tomorrow = tomorrow {
+            for show in tomorrow {
+                let title = show["title"] as! String
+                let times = show["times"] as! String
+                let showKey = "\(title).\(times)"
+                
+                if key == showKey {
+                    return show
+                }
+            }
+        }
+
+        return nil
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -133,7 +194,7 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SHOW")!
-        guard let show = showForIndexPath(indexPath: indexPath) else { return cell }
+        guard let show = showFor(indexPath: indexPath) else { return cell }
         let title = show["title"] as! String
         let times = show["times"] as! String
         let imageURL = show["image"] as! String
@@ -156,14 +217,11 @@ class ViewController: UITableViewController {
     //  MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let show = showForIndexPath(indexPath: indexPath) else { return }
-        let infoURL = show["href"] as! String
+        guard let aShow = showFor(indexPath: indexPath) else { return }
 
-        print("selected show: \(show)")
+        print("selected show: \(aShow)")
         
-        let viewController = SFSafariViewController(url: URL(string: infoURL)!)
-        
-        present(viewController, animated: true, completion: nil)
+        show(show: aShow)
     }
 }
 

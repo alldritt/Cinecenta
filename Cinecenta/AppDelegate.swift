@@ -20,7 +20,7 @@ let cinecentaURL = URL(string: "https://www.latenightsw.com/mark/cinecenta.php")
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (success, error) in
             print("success: \(success), error: \(error)")
         }
+        UNUserNotificationCenter.current().delegate = self
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(tomorrowAt6AM)
         
@@ -76,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let notification = UNMutableNotificationContent()
                     notification.title = title
                     notification.body = times
+                    notification.userInfo = ["key": key]
                     notification.sound = UNNotificationSound.default
 
                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
@@ -103,5 +105,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    //  MARK: - UNUserNotificationCenterDelegate
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let key = response.notification.request.identifier
+        
+        //  Update the view
+        if let navViewController = self.window?.rootViewController as? UINavigationController,
+            let viewController = navViewController.topViewController as? ViewController {
+            viewController.show(key: key)
+        }
+
+        completionHandler()
+    }
 }
 
