@@ -21,18 +21,14 @@ class ViewController: UITableViewController {
         timer?.invalidate()
     }
     
-    private func scrapeSite(flushCache: Bool = true) {
+    private func scrapeSite(flushCache: Bool = false) {
         refreshControl?.beginRefreshing()
-        if flushCache {
-            Shared.JSONCache.remove(key: cinecentaURL.absoluteString) // force a reload!
-        }
-        Shared.JSONCache.fetch(URL: cinecentaURL).onSuccess { json in
-            print("JSON: \(json)")
-            
-            self.today = json.dictionary["today"] as? [[String:AnyObject]]
-            self.tomorrow = json.dictionary["tomorrow"] as? [[String:AnyObject]]
+        AppDelegate.scrapeSite(flushCache: flushCache) { (today, tomorrow) in
+            self.today = today
+            self.tomorrow = tomorrow
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+
         }
     }
     
@@ -42,11 +38,11 @@ class ViewController: UITableViewController {
         timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 6 /* tomorrow + 3 hours */,
                                      repeats: false,
                                      block: { [unowned self] (timer) in
-                                        self.scrapeSite(flushCache: true)
+                                        self.scrapeSite()
                                         self.timer = Timer.scheduledTimer(withTimeInterval: 60 * 60 * 24, /* 1 day */
                                                                           repeats: true,
                                                                           block: { [unowned self] (timer) in
-                                                self.scrapeSite(flushCache: true)
+                                                self.scrapeSite()
                                         })
         })
 
@@ -63,7 +59,7 @@ class ViewController: UITableViewController {
         NotificationCenter.default.removeObserver(tableView!, name: UIContentSizeCategory.didChangeNotification, object: nil)
 
         //  Populate the table
-        scrapeSite(ignoreCache: true)
+        scrapeSite()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -234,8 +230,6 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let aShow = showFor(indexPath: indexPath) else { return }
-
-        print("selected show: \(aShow)")
         
         show(show: aShow)
     }
