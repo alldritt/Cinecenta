@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         UNUserNotificationCenter.current().delegate = self
         
+        print("nextBackgroundFetchInterval: \(nextBackgroundFetchInterval)")
         UIApplication.shared.setMinimumBackgroundFetchInterval(nextBackgroundFetchInterval)
         
         return true
@@ -89,6 +90,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let today = Date().zeroHour
+
+        if let lastNotification = UserDefaults.standard.object(forKey: "lastFetchTime") as? Date {
+            guard today != lastNotification else { completionHandler(.noData); return }
+        }
+        UserDefaults.standard.set(today, forKey: "lastFetchTime")
+        
         AppDelegate.scrapeSite { (today, _) in
             if let today = today, today.count > 0 {
                 for show in today {
@@ -120,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             //  Schedule the next background fetch
+            print("nextBackgroundFetchInterval: \(self.nextBackgroundFetchInterval)")
             UIApplication.shared.setMinimumBackgroundFetchInterval(self.nextBackgroundFetchInterval)
             
             completionHandler(.newData)

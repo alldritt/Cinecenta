@@ -36,4 +36,22 @@ public extension Date {
         
         return tomorrow!
     }
+    
+    public var zeroHour : Date {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self)
+        
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        return calendar.date(from: components)!
+    }
+    
+    public var nextDay : Date {
+        let calendar = Calendar.current
+        
+        return calendar.date(byAdding: .day, value: 1, to: zeroHour)!
+    }
+
 }
