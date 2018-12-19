@@ -28,24 +28,16 @@ class ViewController: UITableViewController {
             self.tomorrow = tomorrow
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
-
         }
     }
     
+    private func timerFired(_ timer: Timer) {
+        refresh()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 6 /* tomorrow + 3 hours */,
-                                     repeats: false,
-                                     block: { [unowned self] (timer) in
-                                        self.scrapeSite()
-                                        self.timer = Timer.scheduledTimer(withTimeInterval: 60 * 60 * 24, /* 1 day */
-                                                                          repeats: true,
-                                                                          block: { [unowned self] (timer) in
-                                                self.scrapeSite()
-                                        })
-        })
-
         //  Configure pull-to-refresh
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
@@ -59,7 +51,7 @@ class ViewController: UITableViewController {
         NotificationCenter.default.removeObserver(tableView!, name: UIContentSizeCategory.didChangeNotification, object: nil)
 
         //  Populate the table
-        scrapeSite()
+        self.refresh()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +64,18 @@ class ViewController: UITableViewController {
         scrapeSite(flushCache: true)
     }
 
+    public func pause() {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
     public func refresh() {
         scrapeSite()
+        
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(withTimeInterval: Date.tomorrow.timeIntervalSinceNow + 60 * 60 * 3 /* tomorrow + 3 hours */,
+            repeats: false,
+            block: timerFired)
     }
     
     public func show(key: String) {
@@ -209,14 +211,19 @@ class ViewController: UITableViewController {
         guard let show = showFor(indexPath: indexPath) else { return cell }
         let title = show["title"] as! String
         let times = show["times"] as! String
-        let imageURL = show["image"] as! String
+        let imageURL = show["image"] as? String
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = times
         cell.detailTextLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
-        cell.imageView?.contentMode = .scaleAspectFit
-        cell.imageView?.hnk_setImageFromURL(URL(string: imageURL)!, placeholder: UIImage(named: "Placeholder"))
+        if imageURL == nil {
+            cell.imageView?.image = nil
+        }
+        else {
+            cell.imageView?.contentMode = .scaleAspectFit
+            cell.imageView?.hnk_setImageFromURL(URL(string: imageURL!)!, placeholder: UIImage(named: "Placeholder"))
+        }
         cell.contentView.setNeedsLayout()
         
         return cell
