@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (success, error) in
-            print("success: \(success), error: \(error)")
+            print("success: \(success), error: \(String(describing: error))")
         }
         UNUserNotificationCenter.current().delegate = self
         
@@ -128,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                                         trigger: trigger)
                     
                     UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
-                        print("error: \(error)")
+                        print("error: \(String(describing: error))")
                     })
                 }
             }
