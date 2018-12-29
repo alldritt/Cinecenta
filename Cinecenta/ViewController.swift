@@ -16,6 +16,7 @@ class ViewController: UITableViewController {
     private var tomorrow: [[String:AnyObject]]?
     private var timer: Timer?
     private var shownURL: URL?
+    private var noResultsLabel : UILabel?
 
     deinit {
         timer?.invalidate()
@@ -28,6 +29,15 @@ class ViewController: UITableViewController {
             self.tomorrow = tomorrow
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            
+            if self.today == nil && self.tomorrow == nil {
+                self.tableView.backgroundView = self.noResultsLabel!
+                self.tableView.separatorStyle = .none
+            }
+            else {
+                self.tableView.backgroundView = nil
+                self.tableView.separatorStyle = .singleLine
+            }
         }
     }
     
@@ -38,6 +48,13 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //  Setup "empty" display
+        noResultsLabel = UILabel()
+        noResultsLabel!.text = "No Movies Showing"
+        noResultsLabel!.font = UIFont.systemFont(ofSize: 22)
+        noResultsLabel!.textAlignment = .center
+        noResultsLabel!.sizeToFit()
+
         //  Configure pull-to-refresh
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: UIControl.Event.valueChanged)
