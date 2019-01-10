@@ -35,10 +35,12 @@ function readFromURL($url) {
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		$content = curl_exec($curl);
 		curl_close($curl);
+		$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
 	}
 	else if (file_get_contents(__FILE__) && ini_get('allow_url_fopen'))
 	{
 		$content = file_get_contents($url);
+		$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
 	}
 	else
 	{
@@ -103,8 +105,8 @@ function getDay($xpath, $day) {
 $result['today'] = getDay($xpath, $today);
 $result['tomorrow'] = getDay($xpath, $tomorrow);
 
-header("Content-type: application/json");
-if (true)
-	echo json_encode($result, JSON_PRETTY_PRINT);
+header("Content-type: application/json; charset=utf-8");
+if (false)
+	echo utf8_encode(json_encode($result, JSON_PRETTY_PRINT));
 else
-	echo json_encode($result, 0);
+	echo utf8_encode(json_encode($result, 0));
