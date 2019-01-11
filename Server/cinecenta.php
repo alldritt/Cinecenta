@@ -35,13 +35,15 @@ function readFromURL($url) {
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		$content = curl_exec($curl);
 		curl_close($curl);
-		$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
+		//$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
+		$content = htmlspecialchars_decode(utf8_decode(htmlentities($content, ENT_COMPAT, 'utf-8', false)));
 	}
 	else if (file_get_contents(__FILE__) && ini_get('allow_url_fopen'))
 	{
 		$content = file_get_contents($url);
-		$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
-	}
+		//$content = mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8');
+		$content = htmlspecialchars_decode(utf8_decode(htmlentities($content, ENT_COMPAT, 'utf-8', false)));
+ 	}
 	else
 	{
 		trigger_error('You have neither cUrl installed nor allow_url_fopen activated. Please setup one of those!');
