@@ -48,6 +48,19 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //  Setup header view
+        let imageTopSpacing = CGFloat(10)
+        guard let image = UIImage(named: "Cinecenta") else { fatalError() }
+        let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: imageTopSpacing), size: CGSize(width: 100, height: image.size.height)))
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.translatesAutoresizingMaskIntoConstraints = true
+        
+        let headerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: image.size.height + imageTopSpacing)))
+        headerView.addSubview(imageView)
+        tableView.tableHeaderView = headerView
+        
         //  Setup "empty" display
         noResultsLabel = UILabel()
         noResultsLabel!.text = "No Movies Showing"
