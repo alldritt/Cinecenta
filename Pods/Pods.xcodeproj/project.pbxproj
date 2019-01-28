@@ -40,7 +40,7 @@
 		5B7B84F20B33E7F3F405CB7C68CEA087 /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F98499F3ACE7A6EDCFDF263ACCE240 /* PopoverSelectorRow.swift */; };
 		5CB37FD4B29C0F011FA41C69E43286C9 /* InlineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E2203AA8744B048E868D83AA589AB7 /* InlineRowType.swift */; };
 		5DF6EA90C1406E1B0D158959E63995D3 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E23947C93CFCAA6DB4C5BB7D14FD038 /* SliderRow.swift */; };
-		5E18A1253A1BA6CC54197933C9B40C0C /* Pods-Cinecenta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC7171EDD42FBD950A638726E20941F /* Pods-Cinecenta-dummy.m */; };
+		5E18A1253A1BA6CC54197933C9B40C0C /* Pods-Cinecenta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B395AD8624B6E6B83EE7CDE41C5FF0 /* Pods-Cinecenta-dummy.m */; };
 		63FF1049226137F282808003C82278BE /* RuleEqualsToRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A250A76B7E683EF2707A6DE6DD286 /* RuleEqualsToRow.swift */; };
 		69A40D559F7F436C4686380B3EA5B4CD /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88327296EB667B41F71A71F8AC0DA52E /* Cache.swift */; };
 		6FE07D3565A5DF397D8B5BC362EA9D9E /* Eureka-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8138F324A87305BDBAB32D4AE29D9A /* Eureka-dummy.m */; };
@@ -48,7 +48,7 @@
 		71917DA8618B6A9E3085DF0EF295E8C0 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C3167E9B0E3F8789C96DC338E49ECE /* Fetcher.swift */; };
 		761FE4416916F4FCB75177E79927567F /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C4691026331F020196DD6140048A98 /* SelectableSection.swift */; };
 		773619DED96169C7ADBF22DCF8D840E1 /* DiskFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C70A6B78E547B739C7D39690B78854 /* DiskFetcher.swift */; };
-		7BE1B3DA14723977DC78235A5A7D6C09 /* Pods-Cinecenta-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68DA46860ADA97FC3A6A77C740DA4611 /* Pods-Cinecenta-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7BE1B3DA14723977DC78235A5A7D6C09 /* Pods-Cinecenta-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45F79F3792F695E88C19B8ACE400D8AB /* Pods-Cinecenta-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7C410C7F3AF7E100BB1B3C9052B6F761 /* String+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0644B7C4CB773124A603CBD7184BD3E1 /* String+Haneke.swift */; };
 		81AC4BC9BDF96D57C35BA17D19F48F27 /* CGSize+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42F546BD176412C91CD044C48346A52 /* CGSize+Swift.swift */; };
 		83296E19E0B112186D90506D6F394E1E /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172FEC2D016F5FE9C8AA612C5C23827 /* SwitchRow.swift */; };
@@ -60,6 +60,7 @@
 		887449731543AA459F1EAE99821C1CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		8AE1FB9313D87F02546AE34451C46AC1 /* SwipeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DA204324E367A27EB36BD0407BCE5F /* SwipeActions.swift */; };
 		8AF5C954EE2359855D005A85B61C369E /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB382AA36E3A2A1334647C2EB8EB33E8 /* Form.swift */; };
+		916809B6D4612A3E37651C6F3AED2008 /* Pods-Today-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 140629EEC05651E25A8A4477CA3BFFB2 /* Pods-Today-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		989EBF4594F11F6976F17D070A7B5EB4 /* PresenterRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD1F07378F8FCB9A823537C1CF5D049 /* PresenterRowType.swift */; };
 		9A2861FEEFE2A0E0D443E399F2BA8B36 /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024D93CE26018E5AE59A114B5DE276EC /* BaseRow.swift */; };
 		9B4228CAF2839D8681E1793B0ABB98A2 /* PushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDDC691F685DA82575B7356F5130092 /* PushRow.swift */; };
@@ -67,9 +68,11 @@
 		A3BFBB9E9C9F340B2C2DD3689C637DA0 /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFE5E3C9BFDAD432B9C353E8BBA8C4C /* HeaderFooterView.swift */; };
 		A7E5349B92B3876441412DEFB80DB350 /* PickerInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85F770F6BC9C7A9847281921951CABD /* PickerInlineRow.swift */; };
 		B12EC7ABF7DB75CBC6340D4700FED00A /* NSFileManager+Haneke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFBBC9EABFBF6EAA33294CAD0ECB67C /* NSFileManager+Haneke.swift */; };
+		B185A35233B0F9A3EF2C7386AEFF691C /* Pods-Today-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C35048B73D12700B2F2710CB12F8142B /* Pods-Today-dummy.m */; };
 		B31A96881DD54EC27ECC6C01722A91DB /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70C61B1F0E0FF09E0BFB7B48249A28D /* Format.swift */; };
 		BDEFAEB03160392AC79766B639E1EC90 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF89C544B7EC273262684FC085FDDD /* Helpers.swift */; };
 		C01FF1FD1FF228CB1D04E901B7FB9D98 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F45D217847EB429E1C7E274DB578C0 /* Row.swift */; };
+		C0E6DE513236F73DC08D5B7933D39659 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		C1755B1DDB605232628646ED77CD2736 /* DateFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D447DE5FBDAB2509B2EEA244F7A16769 /* DateFieldRow.swift */; };
 		C2B0BF314CFD2E704BD317739F5660CA /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD836F82AE151C245548D1BE61039BD /* NavigationAccessoryView.swift */; };
 		C568FBEC6DA04C67A536CCE34B44F419 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5565A365163C45D7C5DDBFD0D94CC828 /* Log.swift */; };
@@ -113,6 +116,13 @@
 			remoteGlobalIDString = F1045ACC7FF36AB81CA9F00EC264AF0D;
 			remoteInfo = HanekeSwift;
 		};
+		9795A95F2E8A74325A0E6E5E86270951 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1045ACC7FF36AB81CA9F00EC264AF0D;
+			remoteInfo = HanekeSwift;
+		};
 		E6E76B3F55E72A18DEDCFA731C9A40C9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -139,11 +149,12 @@
 		0EDDC691F685DA82575B7356F5130092 /* PushRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushRow.swift; path = Source/Rows/PushRow.swift; sourceTree = "<group>"; };
 		0F690F725ACF6D5E307B5A9529967FE1 /* HanekeSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HanekeSwift-prefix.pch"; sourceTree = "<group>"; };
 		1024999B57CD728F53F94167EDFE32DC /* TriplePickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriplePickerInputRow.swift; path = Source/Rows/TriplePickerInputRow.swift; sourceTree = "<group>"; };
+		140629EEC05651E25A8A4477CA3BFFB2 /* Pods-Today-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Today-umbrella.h"; sourceTree = "<group>"; };
 		144CDC2D20F527C53BEA1E33BFF8C4B0 /* UIView+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Haneke.swift"; path = "Haneke/UIView+Haneke.swift"; sourceTree = "<group>"; };
+		149502B84D21BA434E1A674B7CA223B6 /* libEureka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEureka.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		180E9E9690B06A911FD61E57D41DB6E1 /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
 		18257129A49C51D6F00FF720D7C4C5FF /* DiskCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskCache.swift; path = Haneke/DiskCache.swift; sourceTree = "<group>"; };
 		1E7501627C72F4C58A02CBD10A3E020A /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Eureka-umbrella.h"; path = "../../Headers/Public/Eureka/Eureka-umbrella.h"; sourceTree = "<group>"; };
-		25E053BE75681F777A0140081A404E29 /* Pods-Cinecenta-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cinecenta-acknowledgements.plist"; sourceTree = "<group>"; };
 		26D376B24E57B6158521E5779552CCD5 /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
 		2AC7314BC756F69918AD1BB9B3E131BE /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
 		2D96AED0DDF5AC3F3879E57957D177C9 /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
@@ -155,47 +166,52 @@
 		359A250A76B7E683EF2707A6DE6DD286 /* RuleEqualsToRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEqualsToRow.swift; path = Source/Validations/RuleEqualsToRow.swift; sourceTree = "<group>"; };
 		35C4691026331F020196DD6140048A98 /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
 		35DA204324E367A27EB36BD0407BCE5F /* SwipeActions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActions.swift; path = Source/Core/SwipeActions.swift; sourceTree = "<group>"; };
+		384300DA3E88EB2D9C0BE273E5122571 /* libPods-Today.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Today.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C3167E9B0E3F8789C96DC338E49ECE /* Fetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fetcher.swift; path = Haneke/Fetcher.swift; sourceTree = "<group>"; };
 		3FDF89C544B7EC273262684FC085FDDD /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
 		3FEE69B29A0BC4B0B13F6E06B993030A /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorRow.swift; path = Source/Rows/MultipleSelectorRow.swift; sourceTree = "<group>"; };
 		3FFBBC9EABFBF6EAA33294CAD0ECB67C /* NSFileManager+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSFileManager+Haneke.swift"; path = "Haneke/NSFileManager+Haneke.swift"; sourceTree = "<group>"; };
+		40B395AD8624B6E6B83EE7CDE41C5FF0 /* Pods-Cinecenta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cinecenta-dummy.m"; sourceTree = "<group>"; };
 		434922FBA184EEDF917552B0E6535D56 /* HanekeSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = HanekeSwift.modulemap; path = ../../Headers/Public/Haneke/HanekeSwift.modulemap; sourceTree = "<group>"; };
+		44776DA3C2EC2F6BB4DF34F25193DB6E /* Pods-Cinecenta-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cinecenta-acknowledgements.plist"; sourceTree = "<group>"; };
+		45F79F3792F695E88C19B8ACE400D8AB /* Pods-Cinecenta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cinecenta-umbrella.h"; sourceTree = "<group>"; };
 		47B3E0DDD8E304261DACD73897F8AD1B /* RuleURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = "<group>"; };
 		4AFE5E3C9BFDAD432B9C353E8BBA8C4C /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
+		553296A435EF15EE45EFC1E439CA8059 /* Pods-Cinecenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinecenta.release.xcconfig"; sourceTree = "<group>"; };
 		5565A365163C45D7C5DDBFD0D94CC828 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Haneke/Log.swift; sourceTree = "<group>"; };
+		56B532B3BF0E8D0CFB0981CD7B4BCFDE /* Pods-Today.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Today.modulemap"; sourceTree = "<group>"; };
 		5A114F8367503DAFAC9BDC9CE87B2EDC /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
 		5AE17D2FCB2DF764D8C28CB7DEEB49C3 /* LabelRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRow.swift; path = Source/Rows/LabelRow.swift; sourceTree = "<group>"; };
 		5B160903E6620563EB50FAAFF48F8FFA /* RuleClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleClosure.swift; path = Source/Validations/RuleClosure.swift; sourceTree = "<group>"; };
-		5FC7171EDD42FBD950A638726E20941F /* Pods-Cinecenta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cinecenta-dummy.m"; sourceTree = "<group>"; };
 		62E2203AA8744B048E868D83AA589AB7 /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
+		644F7849545D589B804A2C97E6ECD931 /* Pods-Cinecenta-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cinecenta-acknowledgements.markdown"; sourceTree = "<group>"; };
 		67C7C77CB0873304D5F6CD6633D3B967 /* NSURLResponse+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSURLResponse+Haneke.swift"; path = "Haneke/NSURLResponse+Haneke.swift"; sourceTree = "<group>"; };
-		68DA46860ADA97FC3A6A77C740DA4611 /* Pods-Cinecenta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cinecenta-umbrella.h"; sourceTree = "<group>"; };
+		6963CF119D4E506331B0AC2F56644D53 /* Pods-Today-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Today-acknowledgements.markdown"; sourceTree = "<group>"; };
 		69C70A6B78E547B739C7D39690B78854 /* DiskFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DiskFetcher.swift; path = Haneke/DiskFetcher.swift; sourceTree = "<group>"; };
 		6A19EF63B53A3FBC6B7ED5735D5AC3FD /* AlertOptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertOptionsRow.swift; path = Source/Rows/Common/AlertOptionsRow.swift; sourceTree = "<group>"; };
-		6A801874F9C35D8CFAABFF464BE14737 /* libEureka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEureka.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		70154F430C07846D01D1044328680947 /* libPods-Cinecenta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cinecenta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		710696937029587413D1FC77E28A6173 /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
 		727921B272142E9C3D614516FE757E38 /* NetworkFetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkFetcher.swift; path = Haneke/NetworkFetcher.swift; sourceTree = "<group>"; };
-		72A92045E89A3119EF0C187C0DC8163F /* Pods-Cinecenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinecenta.release.xcconfig"; sourceTree = "<group>"; };
+		728D4DC4BCB1B4DBDA37CF5AE4A3044A /* Pods-Cinecenta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cinecenta.modulemap"; sourceTree = "<group>"; };
 		74B8F727E64AAFDFFBA02ED6AE1678C0 /* PickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInputRow.swift; path = Source/Rows/PickerInputRow.swift; sourceTree = "<group>"; };
 		74F45D217847EB429E1C7E274DB578C0 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
 		7787BCB5C86CB4D6E032CC3783B35049 /* NSHTTPURLResponse+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSHTTPURLResponse+Haneke.swift"; path = "Haneke/NSHTTPURLResponse+Haneke.swift"; sourceTree = "<group>"; };
 		7CD9266DB10D223630460078256A77BC /* CryptoSwiftMD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CryptoSwiftMD5.swift; path = Haneke/CryptoSwiftMD5.swift; sourceTree = "<group>"; };
 		7F1303FC21844E57F14785A83662687E /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
-		7FBD058409C59B18E2D404E84E171B3B /* Pods-Cinecenta-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cinecenta-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8352421D2A7F67F3719473A615A4162D /* Eureka.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = Eureka.modulemap; path = ../../Headers/Public/Eureka/Eureka.modulemap; sourceTree = "<group>"; };
 		84C23CF10EDAB4266F5F5C9A93D34099 /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
 		8508F398F0AA2A1783E257AFF1670633 /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
 		852E8386655F9EFEBA9CE277D62CA673 /* RuleLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = "<group>"; };
+		86B21584AFF2EB17204A09C1630974B1 /* Pods-Cinecenta-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cinecenta-resources.sh"; sourceTree = "<group>"; };
 		88327296EB667B41F71A71F8AC0DA52E /* Cache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = Haneke/Cache.swift; sourceTree = "<group>"; };
-		8A8329A9210EEC23442F1D9C89D70115 /* Pods-Cinecenta-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cinecenta-resources.sh"; sourceTree = "<group>"; };
+		8C3530039EB0424AEE84FE6533C87DFE /* Pods-Today.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Today.release.xcconfig"; sourceTree = "<group>"; };
+		8FE4DD0D1645127896103A988DFAEE5C /* Pods-Today-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Today-acknowledgements.plist"; sourceTree = "<group>"; };
 		9088F17BCE2F617DBB410C45DA33AE99 /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93B8A2AF33BCA5A3C63D018BB1BEAF2F /* DateInlineFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineFieldRow.swift; path = Source/Rows/Common/DateInlineFieldRow.swift; sourceTree = "<group>"; };
-		9AE393C6814A1C22344EF38A0F0593B5 /* libPods-Cinecenta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cinecenta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9406AE5623C2624D4E32C3018AAEDB /* MultipleSelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorViewController.swift; path = Source/Rows/Controllers/MultipleSelectorViewController.swift; sourceTree = "<group>"; };
 		9F0CCD2E6FFB5BBDE103B717DE647A7B /* HanekeSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HanekeSwift-dummy.m"; sourceTree = "<group>"; };
 		A1799AF69C0298293C0D4E442AD99AF3 /* ActionSheetRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionSheetRow.swift; path = Source/Rows/ActionSheetRow.swift; sourceTree = "<group>"; };
-		A2A0245BA0AC74D5ED23605746D271DD /* Pods-Cinecenta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinecenta.debug.xcconfig"; sourceTree = "<group>"; };
 		A2F98499F3ACE7A6EDCFDF263ACCE240 /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
 		A9860203ABD76ACBA6B1148FE8DEAA53 /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
 		AC062299B5A52E1CF50B07D7309963E2 /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
@@ -203,26 +219,29 @@
 		AED23D6012D50A47AA51AEE5F7BF663F /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B6CC53060B804531F441451A477B7941 /* RuleRequired.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRequired.swift; path = Source/Validations/RuleRequired.swift; sourceTree = "<group>"; };
+		B8913020E38BFBE0115571457C01E2ED /* libHanekeSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHanekeSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD1F07378F8FCB9A823537C1CF5D049 /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
 		BE3AB98695B908C1DEA206F4F202C1DC /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
 		C1E4D74D178943029BB644A799AD9E20 /* Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Haneke.swift; path = Haneke/Haneke.swift; sourceTree = "<group>"; };
 		C1F777AF294591EB821101E0F8FFA143 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
 		C2A5B6DA37CE28D79B0167A8961620A8 /* RuleRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = "<group>"; };
+		C35048B73D12700B2F2710CB12F8142B /* Pods-Today-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Today-dummy.m"; sourceTree = "<group>"; };
 		C42F546BD176412C91CD044C48346A52 /* CGSize+Swift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGSize+Swift.swift"; path = "Haneke/CGSize+Swift.swift"; sourceTree = "<group>"; };
 		C69116F69593ECB832BC4C41AF8A81EE /* TriplePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriplePickerRow.swift; path = Source/Rows/TriplePickerRow.swift; sourceTree = "<group>"; };
 		C79247111039394FFEEB07EC24DD9698 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Source/Core/Operators.swift; sourceTree = "<group>"; };
+		C9772605FA460BFE9B43E9AF85147F4F /* Pods-Cinecenta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cinecenta.debug.xcconfig"; sourceTree = "<group>"; };
 		CB382AA36E3A2A1334647C2EB8EB33E8 /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
 		CD999D1F3A122E479D3663F2ACE33A91 /* UIButton+Haneke.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Haneke.swift"; path = "Haneke/UIButton+Haneke.swift"; sourceTree = "<group>"; };
 		D0E88A09D505B32365AFA90EE1EEB5FB /* SelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorViewController.swift; path = Source/Rows/Controllers/SelectorViewController.swift; sourceTree = "<group>"; };
+		D1DAB70096CB00430F0D5B71F6C17983 /* Pods-Today-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Today-resources.sh"; sourceTree = "<group>"; };
 		D447DE5FBDAB2509B2EEA244F7A16769 /* DateFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFieldRow.swift; path = Source/Rows/Common/DateFieldRow.swift; sourceTree = "<group>"; };
 		D64A8A9B4F2321382FF1282CE508CCF7 /* HanekeSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HanekeSwift-umbrella.h"; path = "../../Headers/Public/Haneke/HanekeSwift-umbrella.h"; sourceTree = "<group>"; };
 		D70C61B1F0E0FF09E0BFB7B48249A28D /* Format.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Format.swift; path = Haneke/Format.swift; sourceTree = "<group>"; };
 		D76CFA560C723D23E3FC6547A5EB889A /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D949A55E198822F44B3214A23BDFD4DE /* Pods-Cinecenta-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cinecenta-frameworks.sh"; sourceTree = "<group>"; };
 		DA542289CE72667367028577D8E926D1 /* RowControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowControllerType.swift; path = Source/Core/RowControllerType.swift; sourceTree = "<group>"; };
+		DEE20AB302A02AB3069C7558A6A047E9 /* Pods-Cinecenta-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cinecenta-frameworks.sh"; sourceTree = "<group>"; };
 		DF0EA3F3E03B87B31F35AF248DC504B3 /* DecimalFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalFormatter.swift; path = Source/Rows/Common/DecimalFormatter.swift; sourceTree = "<group>"; };
-		E2358EA88EC4F0C831A7F157BCAEF56D /* libHanekeSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHanekeSwift.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E264BF2D225710F70FE419EDDFA7D4C5 /* RuleEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = "<group>"; };
 		E62FA9069F742D91BD14C8C61EBEA8B3 /* PickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRow.swift; path = Source/Rows/PickerRow.swift; sourceTree = "<group>"; };
 		E85F770F6BC9C7A9847281921951CABD /* PickerInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInlineRow.swift; path = Source/Rows/PickerInlineRow.swift; sourceTree = "<group>"; };
@@ -232,7 +251,7 @@
 		EEE4794C4A9888165DFAC504E8415084 /* SelectableRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableRowType.swift; path = Source/Core/SelectableRowType.swift; sourceTree = "<group>"; };
 		EF3DBEEA400216998B75CE1321F8341C /* DoublePickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DoublePickerInputRow.swift; path = Source/Rows/DoublePickerInputRow.swift; sourceTree = "<group>"; };
 		EF69599AF717AD5A5653B57BC08B21CC /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Core/Validation.swift; sourceTree = "<group>"; };
-		F6FE3D51275CCBEF381BAC550E19C864 /* Pods-Cinecenta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cinecenta.modulemap"; sourceTree = "<group>"; };
+		F471FA6BCD34B09C77EB6AC1065E46A1 /* Pods-Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Today.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB9DB24310F3B81259F9B2E81591834 /* Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Haneke/Data.swift; sourceTree = "<group>"; };
 		FFD441EF6CC44294E7E154D0B983DA18 /* RowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowType.swift; path = Source/Core/RowType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,25 +282,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DF8421843FCDF6D7BAFA1BDD07F287D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0E6DE513236F73DC08D5B7933D39659 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C2C5F1BBD02C4A759584A58CB09A073 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6A801874F9C35D8CFAABFF464BE14737 /* libEureka.a */,
-				E2358EA88EC4F0C831A7F157BCAEF56D /* libHanekeSwift.a */,
-				9AE393C6814A1C22344EF38A0F0593B5 /* libPods-Cinecenta.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1F16E6000FC8E5657C2C435A3E2C3695 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				D76CFA560C723D23E3FC6547A5EB889A /* Eureka.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		411754D04BA827CA876F65BE244520FB /* Pods-Cinecenta */ = {
+			isa = PBXGroup;
+			children = (
+				728D4DC4BCB1B4DBDA37CF5AE4A3044A /* Pods-Cinecenta.modulemap */,
+				644F7849545D589B804A2C97E6ECD931 /* Pods-Cinecenta-acknowledgements.markdown */,
+				44776DA3C2EC2F6BB4DF34F25193DB6E /* Pods-Cinecenta-acknowledgements.plist */,
+				40B395AD8624B6E6B83EE7CDE41C5FF0 /* Pods-Cinecenta-dummy.m */,
+				DEE20AB302A02AB3069C7558A6A047E9 /* Pods-Cinecenta-frameworks.sh */,
+				86B21584AFF2EB17204A09C1630974B1 /* Pods-Cinecenta-resources.sh */,
+				45F79F3792F695E88C19B8ACE400D8AB /* Pods-Cinecenta-umbrella.h */,
+				C9772605FA460BFE9B43E9AF85147F4F /* Pods-Cinecenta.debug.xcconfig */,
+				553296A435EF15EE45EFC1E439CA8059 /* Pods-Cinecenta.release.xcconfig */,
+			);
+			name = "Pods-Cinecenta";
+			path = "Target Support Files/Pods-Cinecenta";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -301,21 +335,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		644495EFFF1778A14D98B49E568C8275 /* Pods-Cinecenta */ = {
+		517BAF74070C68B244242ED5A5A93D51 /* Pods-Today */ = {
 			isa = PBXGroup;
 			children = (
-				F6FE3D51275CCBEF381BAC550E19C864 /* Pods-Cinecenta.modulemap */,
-				7FBD058409C59B18E2D404E84E171B3B /* Pods-Cinecenta-acknowledgements.markdown */,
-				25E053BE75681F777A0140081A404E29 /* Pods-Cinecenta-acknowledgements.plist */,
-				5FC7171EDD42FBD950A638726E20941F /* Pods-Cinecenta-dummy.m */,
-				D949A55E198822F44B3214A23BDFD4DE /* Pods-Cinecenta-frameworks.sh */,
-				8A8329A9210EEC23442F1D9C89D70115 /* Pods-Cinecenta-resources.sh */,
-				68DA46860ADA97FC3A6A77C740DA4611 /* Pods-Cinecenta-umbrella.h */,
-				A2A0245BA0AC74D5ED23605746D271DD /* Pods-Cinecenta.debug.xcconfig */,
-				72A92045E89A3119EF0C187C0DC8163F /* Pods-Cinecenta.release.xcconfig */,
+				56B532B3BF0E8D0CFB0981CD7B4BCFDE /* Pods-Today.modulemap */,
+				6963CF119D4E506331B0AC2F56644D53 /* Pods-Today-acknowledgements.markdown */,
+				8FE4DD0D1645127896103A988DFAEE5C /* Pods-Today-acknowledgements.plist */,
+				C35048B73D12700B2F2710CB12F8142B /* Pods-Today-dummy.m */,
+				D1DAB70096CB00430F0D5B71F6C17983 /* Pods-Today-resources.sh */,
+				140629EEC05651E25A8A4477CA3BFFB2 /* Pods-Today-umbrella.h */,
+				F471FA6BCD34B09C77EB6AC1065E46A1 /* Pods-Today.debug.xcconfig */,
+				8C3530039EB0424AEE84FE6533C87DFE /* Pods-Today.release.xcconfig */,
 			);
-			name = "Pods-Cinecenta";
-			path = "Target Support Files/Pods-Cinecenta";
+			name = "Pods-Today";
+			path = "Target Support Files/Pods-Today";
 			sourceTree = "<group>";
 		};
 		7395C6C3269EE11E18E44E3F094DA4DA /* Eureka */ = {
@@ -412,8 +445,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				9655FF6A9434381D38944375240504BD /* Pods */,
-				0C2C5F1BBD02C4A759584A58CB09A073 /* Products */,
-				C774906419432BDB064B72267C706E85 /* Targets Support Files */,
+				9586FFEDDE65A62AE448D47CBBF7DCC5 /* Products */,
+				BF84DD6B23DE1C01FEA7F7253B436E93 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -428,6 +461,17 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/HanekeSwift";
+			sourceTree = "<group>";
+		};
+		9586FFEDDE65A62AE448D47CBBF7DCC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				149502B84D21BA434E1A674B7CA223B6 /* libEureka.a */,
+				B8913020E38BFBE0115571457C01E2ED /* libHanekeSwift.a */,
+				70154F430C07846D01D1044328680947 /* libPods-Cinecenta.a */,
+				384300DA3E88EB2D9C0BE273E5122571 /* libPods-Today.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9655FF6A9434381D38944375240504BD /* Pods */ = {
@@ -467,10 +511,11 @@
 			path = HanekeSwift;
 			sourceTree = "<group>";
 		};
-		C774906419432BDB064B72267C706E85 /* Targets Support Files */ = {
+		BF84DD6B23DE1C01FEA7F7253B436E93 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				644495EFFF1778A14D98B49E568C8275 /* Pods-Cinecenta */,
+				411754D04BA827CA876F65BE244520FB /* Pods-Cinecenta */,
+				517BAF74070C68B244242ED5A5A93D51 /* Pods-Today */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -478,6 +523,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		07F9CC5168B3461474F7A01E0925783C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				916809B6D4612A3E37651C6F3AED2008 /* Pods-Today-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		380CC3B4014E188A4BBA25586306AD5C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,7 +573,7 @@
 			);
 			name = Eureka;
 			productName = Eureka;
-			productReference = 6A801874F9C35D8CFAABFF464BE14737 /* libEureka.a */;
+			productReference = 149502B84D21BA434E1A674B7CA223B6 /* libEureka.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		AB06D0871FFA15A0797CAE535A76C0CA /* Pods-Cinecenta */ = {
@@ -539,7 +592,25 @@
 			);
 			name = "Pods-Cinecenta";
 			productName = "Pods-Cinecenta";
-			productReference = 9AE393C6814A1C22344EF38A0F0593B5 /* libPods-Cinecenta.a */;
+			productReference = 70154F430C07846D01D1044328680947 /* libPods-Cinecenta.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C2787C672DC141823D015D5C8A5E5B56 /* Pods-Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A8A0ADC50B328CA76BA4219023CF232 /* Build configuration list for PBXNativeTarget "Pods-Today" */;
+			buildPhases = (
+				E13540963B7B5F588D9D94E8F7368320 /* Sources */,
+				DF8421843FCDF6D7BAFA1BDD07F287D9 /* Frameworks */,
+				07F9CC5168B3461474F7A01E0925783C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9127E7F2EDF2B9CF981266121D2CF3BE /* PBXTargetDependency */,
+			);
+			name = "Pods-Today";
+			productName = "Pods-Today";
+			productReference = 384300DA3E88EB2D9C0BE273E5122571 /* libPods-Today.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F1045ACC7FF36AB81CA9F00EC264AF0D /* HanekeSwift */ = {
@@ -557,7 +628,7 @@
 			);
 			name = HanekeSwift;
 			productName = HanekeSwift;
-			productReference = E2358EA88EC4F0C831A7F157BCAEF56D /* libHanekeSwift.a */;
+			productReference = B8913020E38BFBE0115571457C01E2ED /* libHanekeSwift.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -577,13 +648,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0C2C5F1BBD02C4A759584A58CB09A073 /* Products */;
+			productRefGroup = 9586FFEDDE65A62AE448D47CBBF7DCC5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8C3D0D83169D3C8C98265D2344AB78F0 /* Eureka */,
 				F1045ACC7FF36AB81CA9F00EC264AF0D /* HanekeSwift */,
 				AB06D0871FFA15A0797CAE535A76C0CA /* Pods-Cinecenta */,
+				C2787C672DC141823D015D5C8A5E5B56 /* Pods-Today */,
 			);
 		};
 /* End PBXProject section */
@@ -665,6 +737,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E18A1253A1BA6CC54197933C9B40C0C /* Pods-Cinecenta-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E13540963B7B5F588D9D94E8F7368320 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B185A35233B0F9A3EF2C7386AEFF691C /* Pods-Today-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,12 +837,18 @@
 			target = 8C3D0D83169D3C8C98265D2344AB78F0 /* Eureka */;
 			targetProxy = E6E76B3F55E72A18DEDCFA731C9A40C9 /* PBXContainerItemProxy */;
 		};
+		9127E7F2EDF2B9CF981266121D2CF3BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HanekeSwift;
+			target = F1045ACC7FF36AB81CA9F00EC264AF0D /* HanekeSwift */;
+			targetProxy = 9795A95F2E8A74325A0E6E5E86270951 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1838C7CE0142E37A45C399E85FE898BA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2A0245BA0AC74D5ED23605746D271DD /* Pods-Cinecenta.debug.xcconfig */;
+			baseConfigurationReference = C9772605FA460BFE9B43E9AF85147F4F /* Pods-Cinecenta.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -781,32 +867,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3973A9A6556A46CD47ED58DF1A3E6809 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BEE522077267AC96ED9576C30CB827B /* HanekeSwift.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MODULEMAP_FILE = Headers/Public/Haneke/HanekeSwift.modulemap;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Haneke;
-				PRODUCT_NAME = HanekeSwift;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -935,7 +995,7 @@
 		};
 		641F48647C6ED583EB3D46DAF576E303 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72A92045E89A3119EF0C187C0DC8163F /* Pods-Cinecenta.release.xcconfig */;
+			baseConfigurationReference = 553296A435EF15EE45EFC1E439CA8059 /* Pods-Cinecenta.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -958,32 +1018,31 @@
 			};
 			name = Release;
 		};
-		6FB28F3E13EBC403EA78CD1407F453AF /* Release */ = {
+		6DD13E5E50DADAB715C301C234153FC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BEE522077267AC96ED9576C30CB827B /* HanekeSwift.xcconfig */;
+			baseConfigurationReference = F471FA6BCD34B09C77EB6AC1065E46A1 /* Pods-Today.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MODULEMAP_FILE = Headers/Public/Haneke/HanekeSwift.modulemap;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Today/Pods-Today.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = Haneke;
-				PRODUCT_NAME = HanekeSwift;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		7F2FB2B1AC350482D846312ECD6B868B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1038,6 +1097,87 @@
 			};
 			name = Debug;
 		};
+		B941755511ABA4F9BDDC7D3D9B48E817 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BEE522077267AC96ED9576C30CB827B /* HanekeSwift.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/Haneke/HanekeSwift.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Haneke;
+				PRODUCT_NAME = HanekeSwift;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C19FF62F6605599AF0D225BFF3981807 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C3530039EB0424AEE84FE6533C87DFE /* Pods-Today.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Today/Pods-Today.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FABF02332361DA07B3D08B50BB08DD60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BEE522077267AC96ED9576C30CB827B /* HanekeSwift.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/HanekeSwift/HanekeSwift-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/Haneke/HanekeSwift.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = Haneke;
+				PRODUCT_NAME = HanekeSwift;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1059,6 +1199,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5A8A0ADC50B328CA76BA4219023CF232 /* Build configuration list for PBXNativeTarget "Pods-Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DD13E5E50DADAB715C301C234153FC5 /* Debug */,
+				C19FF62F6605599AF0D225BFF3981807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C4E57F8C981B7C658A092F198C206657 /* Build configuration list for PBXNativeTarget "Eureka" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1071,8 +1220,8 @@
 		EEFCAAC26CBB930437BAB9D3794E2FCF /* Build configuration list for PBXNativeTarget "HanekeSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3973A9A6556A46CD47ED58DF1A3E6809 /* Debug */,
-				6FB28F3E13EBC403EA78CD1407F453AF /* Release */,
+				FABF02332361DA07B3D08B50BB08DD60 /* Debug */,
+				B941755511ABA4F9BDDC7D3D9B48E817 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

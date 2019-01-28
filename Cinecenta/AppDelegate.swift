@@ -16,7 +16,7 @@ import Haneke
 //  ets a JSON structure of the upcomming showing at Cinecenta (www.cinecenta.com).
 
 let cinecentaURL = URL(string: "https://www.latenightsw.com/mark/cinecenta.php")!
-
+let cinecentaScheme = "cinecenta"
 
 
 @UIApplicationMain
@@ -147,6 +147,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        
+        if urlComponents?.scheme == cinecentaScheme {
+            switch urlComponents?.path ?? "" {
+            case "/show":
+                guard let key = urlComponents?.queryItems?.filter({ return $0.name == "key" }).first?.value else { return false }
+                guard let navViewController = self.window?.rootViewController as? UINavigationController,
+                    let viewController = navViewController.topViewController as? ViewController else { return false }
+                
+                viewController.show(key: key)
+                return true
+                
+            default:
+                break
+            }
+        }
+        
+        return false
+    }
+    
     //  MARK: - UNUserNotificationCenterDelegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

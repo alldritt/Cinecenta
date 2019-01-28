@@ -14,7 +14,38 @@
 		A58C884F21763F8600B55123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C884D21763F8600B55123 /* Main.storyboard */; };
 		A58C885121763F8700B55123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58C885021763F8700B55123 /* Assets.xcassets */; };
 		A58C885421763F8700B55123 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C885221763F8700B55123 /* LaunchScreen.storyboard */; };
+		A5C96C5021FFAB3B00DA2436 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */; };
+		A5C96C5321FFAB3B00DA2436 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */; };
+		A5C96C5621FFAB3B00DA2436 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */; };
+		A5C96C5A21FFAB3B00DA2436 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5C96C4E21FFAB3B00DA2436 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5C96C6021FFAC6C00DA2436 /* DateExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5246A5B217A615D0077B7A8 /* DateExtras.swift */; };
+		A5C96C6421FFB3C600DA2436 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C96C6321FFB3C600DA2436 /* Media.xcassets */; };
+		E1B63B7D62AD16DB5FF0468B /* libPods-Today.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5C96C5821FFAB3B00DA2436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A58C883E21763F8600B55123 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5C96C4D21FFAB3B00DA2436;
+			remoteInfo = Today;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5C96C5E21FFAB3B00DA2436 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A5C96C5A21FFAB3B00DA2436 /* Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinecenta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta.debug.xcconfig"; sourceTree = "<group>"; };
@@ -27,7 +58,18 @@
 		A58C885021763F8700B55123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58C885321763F8700B55123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58C885521763F8700B55123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C96C4E21FFAB3B00DA2436 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A5C96C5521FFAB3B00DA2436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A5C96C5721FFAB3B00DA2436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C96C6321FFB3C600DA2436 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		A5C96C6521FFCB4000DA2436 /* Cinecenta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinecenta.entitlements; sourceTree = "<group>"; };
+		A5C96C6621FFCB5900DA2436 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
+		A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.debug.xcconfig"; sourceTree = "<group>"; };
 		BA7B785038736AC236688E78 /* libPods-Cinecenta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cinecenta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.release.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.release.xcconfig"; sourceTree = "<group>"; };
+		FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Today.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +81,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C96C4B21FFAB3B00DA2436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C96C5021FFAB3B00DA2436 /* NotificationCenter.framework in Frameworks */,
+				E1B63B7D62AD16DB5FF0468B /* libPods-Today.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				BA7B785038736AC236688E78 /* libPods-Cinecenta.a */,
+				A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */,
+				FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -55,6 +108,8 @@
 			children = (
 				2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */,
 				820F3319479CC6E879C4ECDA /* Pods-Cinecenta.release.xcconfig */,
+				A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */,
+				C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -63,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				A58C884821763F8600B55123 /* Cinecenta */,
+				A5C96C5121FFAB3B00DA2436 /* Today */,
+				A5C96C5F21FFAC3C00DA2436 /* Shared */,
 				A58C884721763F8600B55123 /* Products */,
 				8C85B2FD6596D647169D847A /* Pods */,
 				0C52770A38D1DE266682D640 /* Frameworks */,
@@ -73,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A58C884621763F8600B55123 /* Cinecenta.app */,
+				A5C96C4E21FFAB3B00DA2436 /* Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,15 +138,35 @@
 		A58C884821763F8600B55123 /* Cinecenta */ = {
 			isa = PBXGroup;
 			children = (
+				A5C96C6521FFCB4000DA2436 /* Cinecenta.entitlements */,
 				A58C884921763F8600B55123 /* AppDelegate.swift */,
 				A58C884B21763F8600B55123 /* ViewController.swift */,
-				A5246A5B217A615D0077B7A8 /* DateExtras.swift */,
 				A58C884D21763F8600B55123 /* Main.storyboard */,
 				A58C885021763F8700B55123 /* Assets.xcassets */,
 				A58C885221763F8700B55123 /* LaunchScreen.storyboard */,
 				A58C885521763F8700B55123 /* Info.plist */,
 			);
 			path = Cinecenta;
+			sourceTree = "<group>";
+		};
+		A5C96C5121FFAB3B00DA2436 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				A5C96C6621FFCB5900DA2436 /* Today.entitlements */,
+				A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */,
+				A5C96C6321FFB3C600DA2436 /* Media.xcassets */,
+				A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */,
+				A5C96C5721FFAB3B00DA2436 /* Info.plist */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		A5C96C5F21FFAC3C00DA2436 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A5246A5B217A615D0077B7A8 /* DateExtras.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,15 +181,35 @@
 				A58C884321763F8600B55123 /* Frameworks */,
 				A58C884421763F8600B55123 /* Resources */,
 				908276CB9EE0A7F351B2A5C2 /* [CP] Copy Pods Resources */,
+				A5C96C5E21FFAB3B00DA2436 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A5C96C5921FFAB3B00DA2436 /* PBXTargetDependency */,
 			);
 			name = Cinecenta;
 			productName = Cinecenta;
 			productReference = A58C884621763F8600B55123 /* Cinecenta.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A5C96C4D21FFAB3B00DA2436 /* Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C96C5D21FFAB3B00DA2436 /* Build configuration list for PBXNativeTarget "Today" */;
+			buildPhases = (
+				9ED28EAC8761926023EF38DC /* [CP] Check Pods Manifest.lock */,
+				A5C96C4A21FFAB3B00DA2436 /* Sources */,
+				A5C96C4B21FFAB3B00DA2436 /* Frameworks */,
+				A5C96C4C21FFAB3B00DA2436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Today;
+			productName = Today;
+			productReference = A5C96C4E21FFAB3B00DA2436 /* Today.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -119,15 +217,26 @@
 		A58C883E21763F8600B55123 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Mark Alldritt";
 				TargetAttributes = {
 					A58C884521763F8600B55123 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+						};
+					};
+					A5C96C4D21FFAB3B00DA2436 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -147,6 +256,7 @@
 			projectRoot = "";
 			targets = (
 				A58C884521763F8600B55123 /* Cinecenta */,
+				A5C96C4D21FFAB3B00DA2436 /* Today */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +269,15 @@
 				A58C885421763F8700B55123 /* LaunchScreen.storyboard in Resources */,
 				A58C885121763F8700B55123 /* Assets.xcassets in Resources */,
 				A58C884F21763F8600B55123 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5C96C4C21FFAB3B00DA2436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C96C6421FFB3C600DA2436 /* Media.xcassets in Resources */,
+				A5C96C5621FFAB3B00DA2436 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +300,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ED28EAC8761926023EF38DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Today-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DCAC120273C26811C5561BE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -214,7 +351,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5C96C4A21FFAB3B00DA2436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C96C6021FFAC6C00DA2436 /* DateExtras.swift in Sources */,
+				A5C96C5321FFAB3B00DA2436 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5C96C5921FFAB3B00DA2436 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5C96C4D21FFAB3B00DA2436 /* Today */;
+			targetProxy = A5C96C5821FFAB3B00DA2436 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A58C884D21763F8600B55123 /* Main.storyboard */ = {
@@ -231,6 +385,14 @@
 				A58C885321763F8700B55123 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5C96C5521FFAB3B00DA2436 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -356,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z7S6X96M3X;
@@ -375,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 820F3319479CC6E879C4ECDA /* Pods-Cinecenta.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z7S6X96M3X;
@@ -385,6 +549,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A5C96C5B21FFAB3B00DA2436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.Today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5C96C5C21FFAB3B00DA2436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.Today;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,6 +613,15 @@
 			buildConfigurations = (
 				A58C885921763F8700B55123 /* Debug */,
 				A58C885A21763F8700B55123 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5C96C5D21FFAB3B00DA2436 /* Build configuration list for PBXNativeTarget "Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C96C5B21FFAB3B00DA2436 /* Debug */,
+				A5C96C5C21FFAB3B00DA2436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
