@@ -6,9 +6,9 @@ Anyway, their web site is fine, but I wanted a simple means of seeing what is sh
 
 ![Screenshot](https://github.com/alldritt/Cinecenta/blob/master/Screenshots/Cinecenta.png?raw=true)
 
-I also wanted to experiment with local notifications so this app displays a notification each morning of what is playing in the evening.
+I also wanted to experiment with local notifications so this app displays a notification each morning showing what is playing in the evening.
 
-The app also offers a Today widget showing what's playing today on the lock screen:
+The app also offers a Today widget showing what's playing on the lock screen:
 
 ![Screenshot](https://github.com/alldritt/Cinecenta/blob/master/Screenshots/TodayWidget.png?raw=true)
 
