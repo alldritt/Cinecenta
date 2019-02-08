@@ -15,6 +15,7 @@ class ViewController: UITableViewController {
     private var today: [[String:AnyObject]]?
     private var tomorrow: [[String:AnyObject]]?
     private var timer: Timer?
+    private var refreshControlTimer: Timer?
     private var shownURL: URL?
     private var noResultsLabel : UILabel?
 
@@ -23,12 +24,29 @@ class ViewController: UITableViewController {
     }
     
     private func scrapeSite(flushCache: Bool = false) {
-        refreshControl?.beginRefreshing()
+        if flushCache {
+            refreshControl?.beginRefreshing()
+        }
+        else {
+            //  Start animating the refresh control after a brief delay.  FOr really fast scrapes (coming
+            //  from the cache), the refresh control will not appear.
+            refreshControlTimer = Timer.scheduledTimer(withTimeInterval: 0.3,
+                repeats: false,
+                block: { _ in
+                    self.refreshControl?.beginRefreshing()
+                    self.refreshControlTimer = nil
+            })
+        }
+
         AppDelegate.scrapeSite(flushCache: flushCache) { (today, tomorrow) in
+            self.refreshControlTimer?.invalidate()
+            self.refreshControlTimer = nil
             self.today = today
             self.tomorrow = tomorrow
             self.tableView.reloadData()
-            self.refreshControl?.endRefreshing()
+            if self.refreshControl?.isRefreshing ?? false {
+                self.refreshControl?.endRefreshing()
+            }
             
             if self.today == nil && self.tomorrow == nil {
                 self.tableView.backgroundView = self.noResultsLabel!

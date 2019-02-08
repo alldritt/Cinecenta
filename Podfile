@@ -7,3 +7,7 @@ target 'Cinecenta' do
     pod 'HanekeSwift', :git => 'https://github.com/aporat/HanekeSwift', :branch => 'master'
 end
 
+target 'Today' do
+    #pod 'HanekeSwift' // This project is inactive and does not support Swift 4.2
+    pod 'HanekeSwift', :git => 'https://github.com/aporat/HanekeSwift', :branch => 'master'
+end

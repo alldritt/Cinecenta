@@ -6,10 +6,12 @@ Anyway, their web site is fine, but I wanted a simple means of seeing what is sh
 
 ![Screenshot](https://github.com/alldritt/Cinecenta/blob/master/Screenshots/Cinecenta.png?raw=true)
 
-I also wanted to experiment with local notifications so this app displays a notification each morning of what is playing in the evening.
+I also wanted to experiment with local notifications so this app displays a notification each morning showing what is playing in the evening.
 
-This app is a bit of a test bed for various iOS experiments.
+The app also offers a Today widget showing what's playing on the lock screen:
 
-Since this app displays content from the Cineceta without their express permission, I doubt it would be accepted into the App Store.  If you want it on your iPhone, you'll have to compile it yourself using Xcode and side-load it onto your phone.
+![Screenshot](https://github.com/alldritt/Cinecenta/blob/master/Screenshots/TodayWidget.png?raw=true)
+
+Since this app displays content from the Cineceta web site without their express permission, I doubt it would be accepted into the App Store.  If you want it on your iPhone, you'll have to compile it yourself using Xcode and side-load it onto your phone.
 
 Licensed under the MIT License.  See the `LICENSE` file for details.
