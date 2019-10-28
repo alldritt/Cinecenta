@@ -10,7 +10,7 @@ import UIKit
 
 public extension Date {
     
-    static public var today : Date {
+    static var today : Date {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: Date())
         
@@ -23,21 +23,21 @@ public extension Date {
         return today!
     }
     
-    static public var yesterday : Date {
+    static var yesterday : Date {
         let calendar = Calendar.current
         let yesterday = calendar.date(byAdding: .day, value: -1, to: today)
         
         return yesterday!
     }
     
-    static public var tomorrow : Date {
+    static var tomorrow : Date {
         let calendar = Calendar.current
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)
         
         return tomorrow!
     }
     
-    public var zeroHour : Date {
+    var zeroHour : Date {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self)
         
@@ -48,7 +48,7 @@ public extension Date {
         return calendar.date(from: components)!
     }
     
-    public var nextDay : Date {
+    var nextDay : Date {
         let calendar = Calendar.current
         
         return calendar.date(byAdding: .day, value: 1, to: zeroHour)!
