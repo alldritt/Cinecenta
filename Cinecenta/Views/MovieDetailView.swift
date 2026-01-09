@@ -27,7 +27,7 @@ struct MovieDetailView: View {
             }
             .padding()
         }
-        .navigationTitle(movie.title)
+        .navigationTitle(movie.displayTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -42,7 +42,7 @@ struct MovieDetailView: View {
     }
 
     private var shareText: String {
-        var text = "\(movie.title) at Cinecenta\n\n"
+        var text = "\(movie.displayTitle) at Cinecenta\n\n"
 
         for dateGroup in movie.showtimesByDate {
             let dateLabel: String
@@ -91,7 +91,7 @@ struct MovieDetailView: View {
 
             // Title and tagline
             VStack(alignment: .leading, spacing: 4) {
-                Text(movie.title)
+                Text(movie.displayTitle)
                     .font(.title)
                     .fontWeight(.bold)
 
@@ -459,7 +459,7 @@ struct ReminderSelectionSheet: View {
 
             // Movie info
             VStack(spacing: 4) {
-                Text(movie.title)
+                Text(movie.displayTitle)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                 Text(showtime.startDate.formatted(date: .abbreviated, time: .shortened))

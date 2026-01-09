@@ -206,6 +206,9 @@ enum TitleMatcher {
         var extractedYear: Int?
         var isSpecialEdition = false
 
+        // Remove cinema event markers (e.g., "Presented by...", "Q&A with...")
+        removeEventMarkers(from: &workingTitle)
+
         // Extract year from title (e.g., "Dune (2021)" or "Dune 2021")
         extractedYear = extractYear(from: &workingTitle)
 
@@ -221,6 +224,42 @@ enum TitleMatcher {
             year: extractedYear,
             isSpecialEdition: isSpecialEdition
         )
+    }
+
+    /// Remove cinema event markers from title (e.g., "The Room – Presented by Greg Sestero" -> "The Room")
+    private static func removeEventMarkers(from title: inout String) {
+        // Patterns that indicate event-specific text follows
+        // Using various dash types: - – —
+        let eventPatterns = [
+            #"\s*[–—\-]\s*[Pp]resented\s+by\s+.*$"#,      // – Presented by ...
+            #"\s*[–—\-]\s*[Ii]ntroduced\s+by\s+.*$"#,    // – Introduced by ...
+            #"\s*[–—\-]\s*[Hh]osted\s+by\s+.*$"#,        // – Hosted by ...
+            #"\s*[–—\-]\s*[Ww]ith\s+.*$"#,               // – With ...
+            #"\s*[–—\-]\s*[Ll]ive\s+.*$"#,               // – Live ...
+            #"\s*[–—\-]\s*[Ss]pecial\s+.*$"#,            // – Special ...
+            #"\s*\+\s*[Ss]hort[s]?.*$"#,                  // + Short / + Shorts
+            #"\s*\+\s*Q&?A.*$"#,                          // + Q&A / + QA
+            #"\s*[–—\-]\s*Q&?A.*$"#,                      // – Q&A
+            #"\s*\([Ww]ith\s+Q&?A\)$"#,                   // (with Q&A)
+            #"\s*\([Ll]ive\s+[Cc]ommentary\)$"#,         // (Live Commentary)
+            #"\s*[–—\-]\s*[Ss]ing[\s\-]?[Aa]long.*$"#,   // – Sing-Along / Singalong
+            #"\s*[–—\-]\s*[Dd]ouble\s+[Ff]eature.*$"#,   // – Double Feature
+            #"\s*[–—\-]\s*[Mm]arathon.*$"#,              // – Marathon
+            #"\s*[–—\-]\s*[Ff]ree\s+[Ss]creening.*$"#,   // – Free Screening
+            #"\s*[–—\-]\s*[Ss]neak\s+[Pp]review.*$"#,    // – Sneak Preview
+            #"\s*[–—\-]\s*[Aa]dvance\s+[Ss]creening.*$"#, // – Advance Screening
+            #"\s*:\s*[Tt]he\s+[Ee]xperience.*$"#,        // : The Experience
+        ]
+
+        for pattern in eventPatterns {
+            if let regex = try? NSRegularExpression(pattern: pattern) {
+                title = regex.stringByReplacingMatches(
+                    in: title,
+                    range: NSRange(title.startIndex..., in: title),
+                    withTemplate: ""
+                ).trimmingCharacters(in: .whitespaces)
+            }
+        }
     }
 
     /// Extract year from title string, modifying the input to remove the year

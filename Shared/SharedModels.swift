@@ -43,6 +43,11 @@ struct Movie: Identifiable {
         self.tmdbInfo = tmdbInfo
     }
 
+    /// Title with HTML entities decoded for display
+    var displayTitle: String {
+        title.htmlDecoded
+    }
+
     /// Best available poster URL (TMDb preferred, fallback to scraped)
     var bestPosterURL: URL? {
         tmdbInfo?.posterURL ?? imageURL
