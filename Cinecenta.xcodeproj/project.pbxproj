@@ -10,13 +10,16 @@
 		A1000001238F0001 /* CinecentaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000011238F0001 /* CinecentaApp.swift */; };
 		A1000004238F0001 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000014238F0001 /* MovieListView.swift */; };
 		A1000005238F0001 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000015238F0001 /* MovieDetailView.swift */; };
+		A100000D238F0001 /* YouTubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001C238F0001 /* YouTubePlayerView.swift */; };
 		A1000006238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
 		A1000007238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
 		A1000008238F0001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000018238F0001 /* NotificationManager.swift */; };
 		A1000009238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54D8F2E2F10B25C006ACB08 /* Assets.xcassets */; };
 		A100000A238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
 		A100000B238F0001 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001A238F0001 /* BackgroundTaskManager.swift */; };
+		A100000C238F0001 /* TMDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001B238F0001 /* TMDbService.swift */; };
 		A2000001238F0001 /* CinecentaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000011238F0001 /* CinecentaWidget.swift */; };
+		A2000009238F0001 /* TMDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001B238F0001 /* TMDbService.swift */; };
 		A2000002238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
 		A2000003238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
 		A2000008238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
@@ -24,6 +27,7 @@
 		A2000005238F0001 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2000022238F0001 /* SwiftUI.framework */; };
 		A2000006238F0001 /* CinecentaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A2000000238F0001 /* CinecentaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A2000007238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */; };
+		A300000E238F0001 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = A300000F238F0001 /* YouTubePlayerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +60,13 @@
 		A1000012238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1000014238F0001 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
 		A1000015238F0001 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		A100001C238F0001 /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		A1000016238F0001 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
 		A1000017238F0001 /* CinecentaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaService.swift; sourceTree = "<group>"; };
 		A1000018238F0001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		A1000019238F0001 /* MovieCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCache.swift; sourceTree = "<group>"; };
 		A100001A238F0001 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		A100001B238F0001 /* TMDbService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbService.swift; sourceTree = "<group>"; };
 		A2000000238F0001 /* CinecentaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CinecentaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2000011238F0001 /* CinecentaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaWidget.swift; sourceTree = "<group>"; };
 		A2000012238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A300000E238F0001 /* YouTubePlayerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +143,7 @@
 			children = (
 				A1000014238F0001 /* MovieListView.swift */,
 				A1000015238F0001 /* MovieDetailView.swift */,
+				A100001C238F0001 /* YouTubePlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				A1000018238F0001 /* NotificationManager.swift */,
 				A1000019238F0001 /* MovieCache.swift */,
 				A100001A238F0001 /* BackgroundTaskManager.swift */,
+				A100001B238F0001 /* TMDbService.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -198,6 +207,9 @@
 				A2000031238F0001 /* PBXTargetDependency */,
 			);
 			name = Cinecenta;
+			packageProductDependencies = (
+				A300000F238F0001 /* YouTubePlayerKit */,
+			);
 			productName = Cinecenta;
 			productReference = A1000000238F0001 /* Cinecenta.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +258,9 @@
 				Base,
 			);
 			mainGroup = A1000020238F0001;
+			packageReferences = (
+				A3000010238F0001 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+			);
 			productRefGroup = A1000040238F0001 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -267,8 +282,10 @@
 				A1000008238F0001 /* NotificationManager.swift in Sources */,
 				A100000A238F0001 /* MovieCache.swift in Sources */,
 				A100000B238F0001 /* BackgroundTaskManager.swift in Sources */,
+				A100000C238F0001 /* TMDbService.swift in Sources */,
 				A1000004238F0001 /* MovieListView.swift in Sources */,
 				A1000005238F0001 /* MovieDetailView.swift in Sources */,
+				A100000D238F0001 /* YouTubePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +297,7 @@
 				A2000002238F0001 /* SharedModels.swift in Sources */,
 				A2000003238F0001 /* CinecentaService.swift in Sources */,
 				A2000008238F0001 /* MovieCache.swift in Sources */,
+				A2000009238F0001 /* TMDbService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +593,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3000010238F0001 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A300000F238F0001 /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3000010238F0001 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1000021238F0001 /* Project object */;
 }

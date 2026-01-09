@@ -6,9 +6,11 @@ import UIKit
 final class MovieListViewModel {
     private(set) var movies: [Movie] = []
     private(set) var isLoading = false
+    private(set) var isEnrichingData = false
     private(set) var errorMessage: String?
 
     private let service = CinecentaService()
+    private let tmdbService = TMDbService()
 
     @MainActor
     func loadMovies() async {
@@ -19,11 +21,40 @@ final class MovieListViewModel {
             let allMovies = try await service.fetchMovies()
             // Only show movies with upcoming showtimes
             movies = allMovies.filter { $0.nextShowtime != nil }
+
+            // Enrich with TMDb data in background
+            await enrichMoviesWithTMDb()
         } catch {
             errorMessage = error.localizedDescription
         }
 
         isLoading = false
+    }
+
+    /// Enriches movies with TMDb data progressively
+    @MainActor
+    private func enrichMoviesWithTMDb() async {
+        guard await tmdbService.isConfigured else { return }
+
+        isEnrichingData = true
+
+        // Fetch TMDb data for each movie concurrently (with some throttling)
+        await withTaskGroup(of: (Int, TMDbMovieInfo?).self) { group in
+            for (index, movie) in movies.enumerated() {
+                group.addTask {
+                    let info = await self.tmdbService.fetchMovieInfo(for: movie.title)
+                    return (index, info)
+                }
+            }
+
+            for await (index, info) in group {
+                if let info = info, index < movies.count {
+                    movies[index].tmdbInfo = info
+                }
+            }
+        }
+
+        isEnrichingData = false
     }
 
     func findMovie(byTitle title: String) -> Movie? {
@@ -175,7 +206,7 @@ struct MovieRowView: View {
 
     @ViewBuilder
     private var posterImage: some View {
-        if let imageURL = movie.imageURL {
+        if let imageURL = movie.bestPosterURL {
             AsyncImage(url: imageURL) { phase in
                 switch phase {
                 case .success(let image):
@@ -212,6 +243,35 @@ struct MovieRowView: View {
             Text(movie.title)
                 .font(.headline)
                 .lineLimit(2)
+
+            // TMDb metadata row (rating, runtime, genre)
+            if let tmdb = movie.tmdbInfo {
+                HStack(spacing: 8) {
+                    if let rating = tmdb.formattedRating {
+                        HStack(spacing: 2) {
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                            Text(rating)
+                        }
+                        .font(.caption)
+                    }
+
+                    if let runtime = tmdb.formattedRuntime {
+                        Text(runtime)
+                            .font(.caption)
+                    }
+
+                    if let genre = tmdb.genres.first {
+                        Text(genre)
+                            .font(.caption)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(.quaternary)
+                            .clipShape(Capsule())
+                    }
+                }
+                .foregroundStyle(.secondary)
+            }
 
             HStack(spacing: 4) {
                 Image(systemName: "clock")

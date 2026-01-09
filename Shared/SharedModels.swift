@@ -32,11 +32,25 @@ struct Movie: Identifiable {
     let imageURL: URL?
     var showtimes: [Showtime]
 
-    init(id: UUID = UUID(), title: String, imageURL: URL?, showtimes: [Showtime]) {
+    /// Enriched data from TMDb (optional)
+    var tmdbInfo: TMDbMovieInfo?
+
+    init(id: UUID = UUID(), title: String, imageURL: URL?, showtimes: [Showtime], tmdbInfo: TMDbMovieInfo? = nil) {
         self.id = id
         self.title = title
         self.imageURL = imageURL
         self.showtimes = showtimes
+        self.tmdbInfo = tmdbInfo
+    }
+
+    /// Best available poster URL (TMDb preferred, fallback to scraped)
+    var bestPosterURL: URL? {
+        tmdbInfo?.posterURL ?? imageURL
+    }
+
+    /// Best available backdrop URL
+    var backdropURL: URL? {
+        tmdbInfo?.backdropURL
     }
 
     /// Groups showtimes by date for display
