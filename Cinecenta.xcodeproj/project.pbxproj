@@ -3,411 +3,305 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01504C553E7DC86276EC90D8 /* libPods-Cinecenta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7B785038736AC236688E78 /* libPods-Cinecenta.a */; };
-		A5246A5C217A615D0077B7A8 /* DateExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5246A5B217A615D0077B7A8 /* DateExtras.swift */; };
-		A58C884A21763F8600B55123 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C884921763F8600B55123 /* AppDelegate.swift */; };
-		A58C884C21763F8600B55123 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C884B21763F8600B55123 /* ViewController.swift */; };
-		A58C884F21763F8600B55123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C884D21763F8600B55123 /* Main.storyboard */; };
-		A58C885121763F8700B55123 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58C885021763F8700B55123 /* Assets.xcassets */; };
-		A58C885421763F8700B55123 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C885221763F8700B55123 /* LaunchScreen.storyboard */; };
-		A5C96C5021FFAB3B00DA2436 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */; };
-		A5C96C5321FFAB3B00DA2436 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */; };
-		A5C96C5621FFAB3B00DA2436 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */; };
-		A5C96C5A21FFAB3B00DA2436 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5C96C4E21FFAB3B00DA2436 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A5C96C6021FFAC6C00DA2436 /* DateExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5246A5B217A615D0077B7A8 /* DateExtras.swift */; };
-		A5C96C6421FFB3C600DA2436 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5C96C6321FFB3C600DA2436 /* Media.xcassets */; };
-		E1B63B7D62AD16DB5FF0468B /* libPods-Today.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */; };
+		A1000001238F0001 /* CinecentaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000011238F0001 /* CinecentaApp.swift */; };
+		A1000004238F0001 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000014238F0001 /* MovieListView.swift */; };
+		A1000005238F0001 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000015238F0001 /* MovieDetailView.swift */; };
+		A1000006238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
+		A1000007238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
+		A1000008238F0001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000018238F0001 /* NotificationManager.swift */; };
+		A1000009238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54D8F2E2F10B25C006ACB08 /* Assets.xcassets */; };
+		A100000A238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
+		A100000B238F0001 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001A238F0001 /* BackgroundTaskManager.swift */; };
+		A2000001238F0001 /* CinecentaWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000011238F0001 /* CinecentaWidget.swift */; };
+		A2000002238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
+		A2000003238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
+		A2000008238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
+		A2000004238F0001 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2000021238F0001 /* WidgetKit.framework */; };
+		A2000005238F0001 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2000022238F0001 /* SwiftUI.framework */; };
+		A2000006238F0001 /* CinecentaWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A2000000238F0001 /* CinecentaWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A2000007238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A5C96C5821FFAB3B00DA2436 /* PBXContainerItemProxy */ = {
+		A2000030238F0001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A58C883E21763F8600B55123 /* Project object */;
+			containerPortal = A1000021238F0001 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A5C96C4D21FFAB3B00DA2436;
-			remoteInfo = Today;
+			remoteGlobalIDString = A2000050238F0001;
+			remoteInfo = CinecentaWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A5C96C5E21FFAB3B00DA2436 /* Embed App Extensions */ = {
+		A2000040238F0001 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A5C96C5A21FFAB3B00DA2436 /* Today.appex in Embed App Extensions */,
+				A2000006238F0001 /* CinecentaWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinecenta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta.debug.xcconfig"; sourceTree = "<group>"; };
-		820F3319479CC6E879C4ECDA /* Pods-Cinecenta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinecenta.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta.release.xcconfig"; sourceTree = "<group>"; };
-		A5246A5B217A615D0077B7A8 /* DateExtras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtras.swift; sourceTree = "<group>"; };
-		A58C884621763F8600B55123 /* Cinecenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinecenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A58C884921763F8600B55123 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A58C884B21763F8600B55123 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A58C884E21763F8600B55123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A58C885021763F8700B55123 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A58C885321763F8700B55123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A58C885521763F8700B55123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5C96C4E21FFAB3B00DA2436 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		A5C96C5521FFAB3B00DA2436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		A5C96C5721FFAB3B00DA2436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5C96C6321FFB3C600DA2436 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		A5C96C6521FFCB4000DA2436 /* Cinecenta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinecenta.entitlements; sourceTree = "<group>"; };
-		A5C96C6621FFCB5900DA2436 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
-		A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.debug.xcconfig"; sourceTree = "<group>"; };
-		BA7B785038736AC236688E78 /* libPods-Cinecenta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cinecenta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.release.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.release.xcconfig"; sourceTree = "<group>"; };
-		FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Today.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000000238F0001 /* Cinecenta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinecenta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000011238F0001 /* CinecentaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaApp.swift; sourceTree = "<group>"; };
+		A1000012238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1000014238F0001 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		A1000015238F0001 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		A1000016238F0001 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		A1000017238F0001 /* CinecentaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaService.swift; sourceTree = "<group>"; };
+		A1000018238F0001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A1000019238F0001 /* MovieCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCache.swift; sourceTree = "<group>"; };
+		A100001A238F0001 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		A2000000238F0001 /* CinecentaWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CinecentaWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2000011238F0001 /* CinecentaWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaWidget.swift; sourceTree = "<group>"; };
+		A2000012238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2000021238F0001 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A2000022238F0001 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A54D8F2E2F10B25C006ACB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A58C884321763F8600B55123 /* Frameworks */ = {
+		A10000F0238F0001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01504C553E7DC86276EC90D8 /* libPods-Cinecenta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5C96C4B21FFAB3B00DA2436 /* Frameworks */ = {
+		A20000F0238F0001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C96C5021FFAB3B00DA2436 /* NotificationCenter.framework in Frameworks */,
-				E1B63B7D62AD16DB5FF0468B /* libPods-Today.a in Frameworks */,
+				A2000005238F0001 /* SwiftUI.framework in Frameworks */,
+				A2000004238F0001 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
+/* Begin PBXResourcesBuildPhase section */
+		A10000D0238F0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000009238F0001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A20000D0238F0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2000007238F0001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXGroup section */
-		0C52770A38D1DE266682D640 /* Frameworks */ = {
+		A1000020238F0001 = {
 			isa = PBXGroup;
 			children = (
-				BA7B785038736AC236688E78 /* libPods-Cinecenta.a */,
-				A5C96C4F21FFAB3B00DA2436 /* NotificationCenter.framework */,
-				FB41831A7DBA4C37324C1AB7 /* libPods-Today.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8C85B2FD6596D647169D847A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */,
-				820F3319479CC6E879C4ECDA /* Pods-Cinecenta.release.xcconfig */,
-				A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */,
-				C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A58C883D21763F8600B55123 = {
-			isa = PBXGroup;
-			children = (
-				A58C884821763F8600B55123 /* Cinecenta */,
-				A5C96C5121FFAB3B00DA2436 /* Today */,
-				A5C96C5F21FFAC3C00DA2436 /* Shared */,
-				A58C884721763F8600B55123 /* Products */,
-				8C85B2FD6596D647169D847A /* Pods */,
-				0C52770A38D1DE266682D640 /* Frameworks */,
+				A1000030238F0001 /* Cinecenta */,
+				A1000034238F0001 /* Shared */,
+				A2000010238F0001 /* CinecentaWidget */,
+				A1000040238F0001 /* Products */,
+				A2000020238F0001 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		A58C884721763F8600B55123 /* Products */ = {
+		A1000030238F0001 /* Cinecenta */ = {
 			isa = PBXGroup;
 			children = (
-				A58C884621763F8600B55123 /* Cinecenta.app */,
-				A5C96C4E21FFAB3B00DA2436 /* Today.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A58C884821763F8600B55123 /* Cinecenta */ = {
-			isa = PBXGroup;
-			children = (
-				A5C96C6521FFCB4000DA2436 /* Cinecenta.entitlements */,
-				A58C884921763F8600B55123 /* AppDelegate.swift */,
-				A58C884B21763F8600B55123 /* ViewController.swift */,
-				A58C884D21763F8600B55123 /* Main.storyboard */,
-				A58C885021763F8700B55123 /* Assets.xcassets */,
-				A58C885221763F8700B55123 /* LaunchScreen.storyboard */,
-				A58C885521763F8700B55123 /* Info.plist */,
+				A1000011238F0001 /* CinecentaApp.swift */,
+				A1000012238F0001 /* Info.plist */,
+				A1000033238F0001 /* Views */,
+				A54D8F2E2F10B25C006ACB08 /* Assets.xcassets */,
 			);
 			path = Cinecenta;
 			sourceTree = "<group>";
 		};
-		A5C96C5121FFAB3B00DA2436 /* Today */ = {
+		A1000033238F0001 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A5C96C6621FFCB5900DA2436 /* Today.entitlements */,
-				A5C96C5221FFAB3B00DA2436 /* TodayViewController.swift */,
-				A5C96C6321FFB3C600DA2436 /* Media.xcassets */,
-				A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */,
-				A5C96C5721FFAB3B00DA2436 /* Info.plist */,
+				A1000014238F0001 /* MovieListView.swift */,
+				A1000015238F0001 /* MovieDetailView.swift */,
 			);
-			path = Today;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		A5C96C5F21FFAC3C00DA2436 /* Shared */ = {
+		A1000034238F0001 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A5246A5B217A615D0077B7A8 /* DateExtras.swift */,
+				A1000016238F0001 /* SharedModels.swift */,
+				A1000017238F0001 /* CinecentaService.swift */,
+				A1000018238F0001 /* NotificationManager.swift */,
+				A1000019238F0001 /* MovieCache.swift */,
+				A100001A238F0001 /* BackgroundTaskManager.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A1000040238F0001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1000000238F0001 /* Cinecenta.app */,
+				A2000000238F0001 /* CinecentaWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2000010238F0001 /* CinecentaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A2000011238F0001 /* CinecentaWidget.swift */,
+				A2000012238F0001 /* Info.plist */,
+				A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */,
+			);
+			path = CinecentaWidget;
+			sourceTree = "<group>";
+		};
+		A2000020238F0001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2000021238F0001 /* WidgetKit.framework */,
+				A2000022238F0001 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A58C884521763F8600B55123 /* Cinecenta */ = {
+		A1000050238F0001 /* Cinecenta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A58C885821763F8700B55123 /* Build configuration list for PBXNativeTarget "Cinecenta" */;
+			buildConfigurationList = A1000060238F0001 /* Build configuration list for PBXNativeTarget "Cinecenta" */;
 			buildPhases = (
-				DCAC120273C26811C5561BE6 /* [CP] Check Pods Manifest.lock */,
-				A58C884221763F8600B55123 /* Sources */,
-				A58C884321763F8600B55123 /* Frameworks */,
-				A58C884421763F8600B55123 /* Resources */,
-				908276CB9EE0A7F351B2A5C2 /* [CP] Copy Pods Resources */,
-				A5C96C5E21FFAB3B00DA2436 /* Embed App Extensions */,
+				A10000E0238F0001 /* Sources */,
+				A10000F0238F0001 /* Frameworks */,
+				A10000D0238F0001 /* Resources */,
+				A2000040238F0001 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A5C96C5921FFAB3B00DA2436 /* PBXTargetDependency */,
+				A2000031238F0001 /* PBXTargetDependency */,
 			);
 			name = Cinecenta;
 			productName = Cinecenta;
-			productReference = A58C884621763F8600B55123 /* Cinecenta.app */;
+			productReference = A1000000238F0001 /* Cinecenta.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A5C96C4D21FFAB3B00DA2436 /* Today */ = {
+		A2000050238F0001 /* CinecentaWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5C96C5D21FFAB3B00DA2436 /* Build configuration list for PBXNativeTarget "Today" */;
+			buildConfigurationList = A2000060238F0001 /* Build configuration list for PBXNativeTarget "CinecentaWidgetExtension" */;
 			buildPhases = (
-				9ED28EAC8761926023EF38DC /* [CP] Check Pods Manifest.lock */,
-				A5C96C4A21FFAB3B00DA2436 /* Sources */,
-				A5C96C4B21FFAB3B00DA2436 /* Frameworks */,
-				A5C96C4C21FFAB3B00DA2436 /* Resources */,
+				A20000E0238F0001 /* Sources */,
+				A20000F0238F0001 /* Frameworks */,
+				A20000D0238F0001 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Today;
-			productName = Today;
-			productReference = A5C96C4E21FFAB3B00DA2436 /* Today.appex */;
+			name = CinecentaWidgetExtension;
+			productName = CinecentaWidgetExtension;
+			productReference = A2000000238F0001 /* CinecentaWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A58C883E21763F8600B55123 /* Project object */ = {
+		A1000021238F0001 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Mark Alldritt";
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					A58C884521763F8600B55123 = {
-						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1110;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-						};
+					A1000050238F0001 = {
+						CreatedOnToolsVersion = 15.0;
 					};
-					A5C96C4D21FFAB3B00DA2436 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1110;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
+					A2000050238F0001 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = A58C884121763F8600B55123 /* Build configuration list for PBXProject "Cinecenta" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = A1000024238F0001 /* Build configuration list for PBXProject "Cinecenta" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = A58C883D21763F8600B55123;
-			productRefGroup = A58C884721763F8600B55123 /* Products */;
+			mainGroup = A1000020238F0001;
+			productRefGroup = A1000040238F0001 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A58C884521763F8600B55123 /* Cinecenta */,
-				A5C96C4D21FFAB3B00DA2436 /* Today */,
+				A1000050238F0001 /* Cinecenta */,
+				A2000050238F0001 /* CinecentaWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		A58C884421763F8600B55123 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A58C885421763F8700B55123 /* LaunchScreen.storyboard in Resources */,
-				A58C885121763F8700B55123 /* Assets.xcassets in Resources */,
-				A58C884F21763F8600B55123 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5C96C4C21FFAB3B00DA2436 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A5C96C6421FFB3C600DA2436 /* Media.xcassets in Resources */,
-				A5C96C5621FFAB3B00DA2436 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		908276CB9EE0A7F351B2A5C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta-resources.sh",
-				"${PODS_ROOT}/Eureka/Source/Resources/Eureka.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Eureka.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cinecenta/Pods-Cinecenta-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9ED28EAC8761926023EF38DC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Today-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCAC120273C26811C5561BE6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cinecenta-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		A58C884221763F8600B55123 /* Sources */ = {
+		A10000E0238F0001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A58C884C21763F8600B55123 /* ViewController.swift in Sources */,
-				A58C884A21763F8600B55123 /* AppDelegate.swift in Sources */,
-				A5246A5C217A615D0077B7A8 /* DateExtras.swift in Sources */,
+				A1000001238F0001 /* CinecentaApp.swift in Sources */,
+				A1000006238F0001 /* SharedModels.swift in Sources */,
+				A1000007238F0001 /* CinecentaService.swift in Sources */,
+				A1000008238F0001 /* NotificationManager.swift in Sources */,
+				A100000A238F0001 /* MovieCache.swift in Sources */,
+				A100000B238F0001 /* BackgroundTaskManager.swift in Sources */,
+				A1000004238F0001 /* MovieListView.swift in Sources */,
+				A1000005238F0001 /* MovieDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5C96C4A21FFAB3B00DA2436 /* Sources */ = {
+		A20000E0238F0001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5C96C6021FFAC6C00DA2436 /* DateExtras.swift in Sources */,
-				A5C96C5321FFAB3B00DA2436 /* TodayViewController.swift in Sources */,
+				A2000001238F0001 /* CinecentaWidget.swift in Sources */,
+				A2000002238F0001 /* SharedModels.swift in Sources */,
+				A2000003238F0001 /* CinecentaService.swift in Sources */,
+				A2000008238F0001 /* MovieCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A5C96C5921FFAB3B00DA2436 /* PBXTargetDependency */ = {
+		A2000031238F0001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A5C96C4D21FFAB3B00DA2436 /* Today */;
-			targetProxy = A5C96C5821FFAB3B00DA2436 /* PBXContainerItemProxy */;
+			target = A2000050238F0001 /* CinecentaWidgetExtension */;
+			targetProxy = A2000030238F0001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		A58C884D21763F8600B55123 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A58C884E21763F8600B55123 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A58C885221763F8700B55123 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A58C885321763F8700B55123 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A5C96C5421FFAB3B00DA2436 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A5C96C5521FFAB3B00DA2436 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		A58C885621763F8700B55123 /* Debug */ = {
+		A1000070238F0001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -426,18 +320,20 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -451,24 +347,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		A58C885721763F8700B55123 /* Release */ = {
+		A1000071238F0001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -487,18 +383,20 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -506,129 +404,177 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A1000080238F0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cinecenta/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Films";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1000081238F0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cinecenta/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Films";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A58C885921763F8700B55123 /* Debug */ = {
+		A2000080238F0001 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D102D3CEA4E2CA26108AD71 /* Pods-Cinecenta.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z7S6X96M3X;
-				INFOPLIST_FILE = Cinecenta/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A58C885A21763F8700B55123 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 820F3319479CC6E879C4ECDA /* Pods-Cinecenta.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7S6X96M3X;
-				INFOPLIST_FILE = Cinecenta/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A5C96C5B21FFAB3B00DA2436 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A858C4A3AB41F72181D0A845 /* Pods-Today.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7S6X96M3X;
-				INFOPLIST_FILE = Today/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CinecentaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CinecentaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.Today;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.CinecentaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		A5C96C5C21FFAB3B00DA2436 /* Release */ = {
+		A2000081238F0001 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C41EAFD38E58CE5673501E4C /* Pods-Today.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z7S6X96M3X;
-				INFOPLIST_FILE = Today/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CinecentaWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CinecentaWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.Today;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.Cinecenta.CinecentaWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A58C884121763F8600B55123 /* Build configuration list for PBXProject "Cinecenta" */ = {
+		A1000024238F0001 /* Build configuration list for PBXProject "Cinecenta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A58C885621763F8700B55123 /* Debug */,
-				A58C885721763F8700B55123 /* Release */,
+				A1000070238F0001 /* Debug */,
+				A1000071238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A58C885821763F8700B55123 /* Build configuration list for PBXNativeTarget "Cinecenta" */ = {
+		A1000060238F0001 /* Build configuration list for PBXNativeTarget "Cinecenta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A58C885921763F8700B55123 /* Debug */,
-				A58C885A21763F8700B55123 /* Release */,
+				A1000080238F0001 /* Debug */,
+				A1000081238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5C96C5D21FFAB3B00DA2436 /* Build configuration list for PBXNativeTarget "Today" */ = {
+		A2000060238F0001 /* Build configuration list for PBXNativeTarget "CinecentaWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5C96C5B21FFAB3B00DA2436 /* Debug */,
-				A5C96C5C21FFAB3B00DA2436 /* Release */,
+				A2000080238F0001 /* Debug */,
+				A2000081238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A58C883E21763F8600B55123 /* Project object */;
+	rootObject = A1000021238F0001 /* Project object */;
 }

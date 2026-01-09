@@ -1,6 +1,0 @@
-module Pods_Cinecenta {
-  umbrella header "Pods-Cinecenta-umbrella.h"
-
-  export *
-  module * { export * }
-}
