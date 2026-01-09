@@ -1,4 +1,5 @@
 import SwiftUI
+import YouTubePlayerKit
 
 /// Detail view showing all showtimes for a movie
 struct MovieDetailView: View {
@@ -12,6 +13,16 @@ struct MovieDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 headerSection
+                if movie.tmdbInfo != nil {
+                    movieInfoSection
+                    trailerSection
+                    if movie.tmdbInfo?.overview != nil {
+                        synopsisSection
+                    }
+                    if !(movie.tmdbInfo?.topCast.isEmpty ?? true) {
+                        castSection
+                    }
+                }
                 showtimesSection
             }
             .padding()
@@ -54,31 +65,68 @@ struct MovieDetailView: View {
     @ViewBuilder
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            if let imageURL = movie.imageURL {
-                AsyncImage(url: imageURL) { phase in
+            // Use backdrop if available, otherwise poster
+            if let backdropURL = movie.backdropURL {
+                AsyncImage(url: backdropURL) { phase in
                     switch phase {
                     case .success(let image):
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                     case .failure:
-                        headerPlaceholder
+                        posterFallback
                     case .empty:
                         ProgressView()
                             .frame(maxWidth: .infinity)
                             .frame(height: 200)
                     @unknown default:
-                        headerPlaceholder
+                        posterFallback
                     }
                 }
             } else {
-                headerPlaceholder
+                posterFallback
             }
 
-            Text(movie.title)
-                .font(.title)
-                .fontWeight(.bold)
+            // Title and tagline
+            VStack(alignment: .leading, spacing: 4) {
+                Text(movie.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+
+                if let tagline = movie.tmdbInfo?.tagline, !tagline.isEmpty {
+                    Text(tagline)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .italic()
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var posterFallback: some View {
+        if let imageURL = movie.bestPosterURL {
+            AsyncImage(url: imageURL) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                case .failure:
+                    headerPlaceholder
+                case .empty:
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 200)
+                @unknown default:
+                    headerPlaceholder
+                }
+            }
+        } else {
+            headerPlaceholder
         }
     }
 
@@ -91,6 +139,131 @@ struct MovieDetailView: View {
                     .font(.largeTitle)
                     .foregroundStyle(.secondary)
             }
+    }
+
+    // MARK: - Movie Info Section
+
+    @ViewBuilder
+    private var movieInfoSection: some View {
+        if let tmdb = movie.tmdbInfo {
+            VStack(alignment: .leading, spacing: 12) {
+                // Rating, Runtime, Genres row
+                HStack(spacing: 16) {
+                    if let rating = tmdb.formattedRating {
+                        HStack(spacing: 4) {
+                            Image(systemName: "star.fill")
+                                .foregroundStyle(.yellow)
+                            Text(rating)
+                                .fontWeight(.semibold)
+                            if let votes = tmdb.voteCount, votes > 0 {
+                                Text("(\(formatVoteCount(votes)))")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+
+                    if let runtime = tmdb.formattedRuntime {
+                        HStack(spacing: 4) {
+                            Image(systemName: "clock")
+                            Text(runtime)
+                        }
+                        .foregroundStyle(.secondary)
+                    }
+                }
+                .font(.subheadline)
+
+                // Genre tags
+                if !tmdb.genres.isEmpty {
+                    FlowLayout(spacing: 8) {
+                        ForEach(tmdb.genres, id: \.self) { genre in
+                            Text(genre)
+                                .font(.caption)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(.blue.opacity(0.15))
+                                .foregroundStyle(.blue)
+                                .clipShape(Capsule())
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Trailer Section
+
+    @ViewBuilder
+    private var trailerSection: some View {
+        if let trailerURL = movie.tmdbInfo?.trailerURL,
+           let videoID = YouTubeHelper.extractVideoID(from: trailerURL) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Trailer")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                YouTubePlayerView(
+                    YouTubePlayer(source: .video(id: videoID))
+                )
+                .frame(height: 220)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+    }
+
+    private func formatVoteCount(_ count: Int) -> String {
+        if count >= 1000 {
+            return String(format: "%.1fK", Double(count) / 1000)
+        }
+        return "\(count)"
+    }
+
+    // MARK: - Synopsis Section
+
+    @ViewBuilder
+    private var synopsisSection: some View {
+        if let overview = movie.tmdbInfo?.overview, !overview.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Synopsis")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                Text(overview)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Cast Section
+
+    @ViewBuilder
+    private var castSection: some View {
+        if let tmdb = movie.tmdbInfo {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Cast & Crew")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                if let director = tmdb.director {
+                    HStack {
+                        Text("Director:")
+                            .foregroundStyle(.secondary)
+                        Text(director)
+                            .fontWeight(.medium)
+                    }
+                    .font(.subheadline)
+                }
+
+                if !tmdb.topCast.isEmpty {
+                    HStack(alignment: .top) {
+                        Text("Cast:")
+                            .foregroundStyle(.secondary)
+                        Text(tmdb.topCast.joined(separator: ", "))
+                    }
+                    .font(.subheadline)
+                }
+            }
+        }
     }
 
     private var showtimesSection: some View {
