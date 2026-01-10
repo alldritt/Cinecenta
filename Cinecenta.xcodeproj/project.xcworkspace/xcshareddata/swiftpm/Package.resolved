@@ -1,6 +1,15 @@
 {
-  "originHash" : "838cedc1ff704f14426befc05257203bf3aaf397162004377a05b8e903ad2a57",
+  "originHash" : "f24222cb3f4b470d3578e4db6ab72d57a899e00ad437411fdac3c3c0f925e7df",
   "pins" : [
+    {
+      "identity" : "grape",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/li3zhen1/Grape.git",
+      "state" : {
+        "revision" : "48eb7d8ab4ce549c6cdde106b5f7fa317421364c",
+        "version" : "1.1.0"
+      }
+    },
     {
       "identity" : "youtubeplayerkit",
       "kind" : "remoteSourceControl",
