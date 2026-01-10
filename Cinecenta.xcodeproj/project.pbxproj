@@ -35,6 +35,14 @@
 		A2000007238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */; };
 		A300000E238F0001 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = A300000F238F0001 /* YouTubePlayerKit */; };
 		A3000020238F0001 /* Grape in Frameworks */ = {isa = PBXBuildFile; productRef = A3000021238F0001 /* Grape */; };
+		A4000001238F0001 /* CinecentaTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4000011238F0001 /* CinecentaTVApp.swift */; };
+		A4000002238F0001 /* TVMovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4000012238F0001 /* TVMovieListView.swift */; };
+		A4000003238F0001 /* TVMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4000013238F0001 /* TVMovieDetailView.swift */; };
+		A4000004238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
+		A4000005238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
+		A4000006238F0001 /* TMDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001B238F0001 /* TMDbService.swift */; };
+		A4000007238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
+		A4000008238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4000015238F0001 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +95,12 @@
 		A2000022238F0001 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		A54D8F2E2F10B25C006ACB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A54D8F2F2F10B25C006ACB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4000000238F0001 /* CinecentaTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinecentaTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4000011238F0001 /* CinecentaTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinecentaTVApp.swift; sourceTree = "<group>"; };
+		A4000012238F0001 /* TVMovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMovieListView.swift; sourceTree = "<group>"; };
+		A4000013238F0001 /* TVMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMovieDetailView.swift; sourceTree = "<group>"; };
+		A4000014238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4000015238F0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +119,13 @@
 			files = (
 				A2000005238F0001 /* SwiftUI.framework in Frameworks */,
 				A2000004238F0001 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40000F0238F0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +149,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A40000D0238F0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4000008238F0001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000030238F0001 /* Cinecenta */,
+				A4000010238F0001 /* CinecentaTV */,
 				A1000034238F0001 /* Shared */,
 				A2000010238F0001 /* CinecentaWidget */,
 				A1000040238F0001 /* Products */,
@@ -187,6 +217,7 @@
 			children = (
 				A1000000238F0001 /* Cinecenta.app */,
 				A2000000238F0001 /* CinecentaWidgetExtension.appex */,
+				A4000000238F0001 /* CinecentaTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +239,26 @@
 				A2000022238F0001 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4000010238F0001 /* CinecentaTV */ = {
+			isa = PBXGroup;
+			children = (
+				A4000011238F0001 /* CinecentaTVApp.swift */,
+				A4000014238F0001 /* Info.plist */,
+				A4000016238F0001 /* Views */,
+				A4000015238F0001 /* Assets.xcassets */,
+			);
+			path = CinecentaTV;
+			sourceTree = "<group>";
+		};
+		A4000016238F0001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4000012238F0001 /* TVMovieListView.swift */,
+				A4000013238F0001 /* TVMovieDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +303,23 @@
 			productReference = A2000000238F0001 /* CinecentaWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A4000050238F0001 /* CinecentaTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4000060238F0001 /* Build configuration list for PBXNativeTarget "CinecentaTV" */;
+			buildPhases = (
+				A40000E0238F0001 /* Sources */,
+				A40000F0238F0001 /* Frameworks */,
+				A40000D0238F0001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CinecentaTV;
+			productName = CinecentaTV;
+			productReference = A4000000238F0001 /* CinecentaTV.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -266,6 +334,9 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					A2000050238F0001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A4000050238F0001 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -289,6 +360,7 @@
 			targets = (
 				A1000050238F0001 /* Cinecenta */,
 				A2000050238F0001 /* CinecentaWidgetExtension */,
+				A4000050238F0001 /* CinecentaTV */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +397,20 @@
 				A2000003238F0001 /* CinecentaService.swift in Sources */,
 				A2000008238F0001 /* MovieCache.swift in Sources */,
 				A2000009238F0001 /* TMDbService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40000E0238F0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4000001238F0001 /* CinecentaTVApp.swift in Sources */,
+				A4000002238F0001 /* TVMovieListView.swift in Sources */,
+				A4000003238F0001 /* TVMovieDetailView.swift in Sources */,
+				A4000004238F0001 /* SharedModels.swift in Sources */,
+				A4000005238F0001 /* CinecentaService.swift in Sources */,
+				A4000006238F0001 /* TMDbService.swift in Sources */,
+				A4000007238F0001 /* MovieCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +675,69 @@
 			};
 			name = Release;
 		};
+		A4000080238F0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CinecentaTV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Films";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CinecentaTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		A4000081238F0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CinecentaTV/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Films";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CinecentaTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -615,6 +764,15 @@
 			buildConfigurations = (
 				A2000080238F0001 /* Debug */,
 				A2000081238F0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4000060238F0001 /* Build configuration list for PBXNativeTarget "CinecentaTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4000080238F0001 /* Debug */,
+				A4000081238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
