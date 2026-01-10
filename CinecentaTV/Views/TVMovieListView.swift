@@ -49,16 +49,21 @@ final class TVMovieListViewModel {
 
 /// Main movie list view for tvOS with a poster grid layout
 struct TVMovieListView: View {
+    @Binding var selectedMovieID: UUID?
     @State private var viewModel = TVMovieListViewModel()
-    @State private var selectedMovie: Movie?
+    @State private var navigationPath = NavigationPath()
 
     private let columns = [
         GridItem(.flexible(), spacing: 48),
         GridItem(.flexible(), spacing: 48)
     ]
 
+    init(selectedMovieID: Binding<UUID?> = .constant(nil)) {
+        self._selectedMovieID = selectedMovieID
+    }
+
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navigationPath) {
             Group {
                 if viewModel.isLoading && viewModel.movies.isEmpty {
                     loadingView
@@ -77,6 +82,14 @@ struct TVMovieListView: View {
             .task {
                 if viewModel.movies.isEmpty {
                     await viewModel.loadMovies()
+                }
+            }
+            .onChange(of: selectedMovieID) { _, newID in
+                if let movieID = newID {
+                    // Navigate to the movie from deep link
+                    navigationPath.append(movieID)
+                    // Clear the selection so it can be used again
+                    selectedMovieID = nil
                 }
             }
         }

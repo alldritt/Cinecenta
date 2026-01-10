@@ -43,6 +43,13 @@
 		A4000006238F0001 /* TMDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001B238F0001 /* TMDbService.swift */; };
 		A4000007238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
 		A4000008238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4000015238F0001 /* Assets.xcassets */; };
+		A4000009238F0001 /* TopShelfExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A5000000238F0001 /* TopShelfExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5000001238F0001 /* TopShelfContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5000011238F0001 /* TopShelfContentProvider.swift */; };
+		A5000002238F0001 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000016238F0001 /* SharedModels.swift */; };
+		A5000003238F0001 /* CinecentaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000017238F0001 /* CinecentaService.swift */; };
+		A5000004238F0001 /* TMDbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001B238F0001 /* TMDbService.swift */; };
+		A5000005238F0001 /* MovieCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000019238F0001 /* MovieCache.swift */; };
+		A5000006238F0001 /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5000021238F0001 /* TVServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A2000050238F0001;
 			remoteInfo = CinecentaWidgetExtension;
+		};
+		A5000030238F0001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1000021238F0001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5000050238F0001;
+			remoteInfo = TopShelfExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,6 +77,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				A2000006238F0001 /* CinecentaWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5000040238F0001 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A4000009238F0001 /* TopShelfExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +126,10 @@
 		A4000013238F0001 /* TVMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMovieDetailView.swift; sourceTree = "<group>"; };
 		A4000014238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4000015238F0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5000000238F0001 /* TopShelfExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopShelfExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5000011238F0001 /* TopShelfContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopShelfContentProvider.swift; sourceTree = "<group>"; };
+		A5000012238F0001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5000021238F0001 /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +155,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A50000F0238F0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5000006238F0001 /* TVServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +194,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A50000D0238F0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -165,6 +209,7 @@
 			children = (
 				A1000030238F0001 /* Cinecenta */,
 				A4000010238F0001 /* CinecentaTV */,
+				A5000010238F0001 /* TopShelfExtension */,
 				A1000034238F0001 /* Shared */,
 				A2000010238F0001 /* CinecentaWidget */,
 				A1000040238F0001 /* Products */,
@@ -218,6 +263,7 @@
 				A1000000238F0001 /* Cinecenta.app */,
 				A2000000238F0001 /* CinecentaWidgetExtension.appex */,
 				A4000000238F0001 /* CinecentaTV.app */,
+				A5000000238F0001 /* TopShelfExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +283,7 @@
 			children = (
 				A2000021238F0001 /* WidgetKit.framework */,
 				A2000022238F0001 /* SwiftUI.framework */,
+				A5000021238F0001 /* TVServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,6 +306,15 @@
 				A4000013238F0001 /* TVMovieDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A5000010238F0001 /* TopShelfExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A5000011238F0001 /* TopShelfContentProvider.swift */,
+				A5000012238F0001 /* Info.plist */,
+			);
+			path = TopShelfExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,15 +366,34 @@
 				A40000E0238F0001 /* Sources */,
 				A40000F0238F0001 /* Frameworks */,
 				A40000D0238F0001 /* Resources */,
+				A5000040238F0001 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A5000031238F0001 /* PBXTargetDependency */,
 			);
 			name = CinecentaTV;
 			productName = CinecentaTV;
 			productReference = A4000000238F0001 /* CinecentaTV.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A5000050238F0001 /* TopShelfExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5000060238F0001 /* Build configuration list for PBXNativeTarget "TopShelfExtension" */;
+			buildPhases = (
+				A50000E0238F0001 /* Sources */,
+				A50000F0238F0001 /* Frameworks */,
+				A50000D0238F0001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TopShelfExtension;
+			productName = TopShelfExtension;
+			productReference = A5000000238F0001 /* TopShelfExtension.appex */;
+			productType = "com.apple.product-type.tv-app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -337,6 +412,9 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					A4000050238F0001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A5000050238F0001 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -361,6 +439,7 @@
 				A1000050238F0001 /* Cinecenta */,
 				A2000050238F0001 /* CinecentaWidgetExtension */,
 				A4000050238F0001 /* CinecentaTV */,
+				A5000050238F0001 /* TopShelfExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -414,6 +493,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A50000E0238F0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5000001238F0001 /* TopShelfContentProvider.swift in Sources */,
+				A5000002238F0001 /* SharedModels.swift in Sources */,
+				A5000003238F0001 /* CinecentaService.swift in Sources */,
+				A5000004238F0001 /* TMDbService.swift in Sources */,
+				A5000005238F0001 /* MovieCache.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -421,6 +512,11 @@
 			isa = PBXTargetDependency;
 			target = A2000050238F0001 /* CinecentaWidgetExtension */;
 			targetProxy = A2000030238F0001 /* PBXContainerItemProxy */;
+		};
+		A5000031238F0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5000050238F0001 /* TopShelfExtension */;
+			targetProxy = A5000030238F0001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -738,6 +834,63 @@
 			};
 			name = Release;
 		};
+		A5000080238F0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopShelfExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Top Shelf";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CinecentaTV.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		A5000081238F0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopShelfExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cinecenta Top Shelf";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CinecentaTV.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -773,6 +926,15 @@
 			buildConfigurations = (
 				A4000080238F0001 /* Debug */,
 				A4000081238F0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5000060238F0001 /* Build configuration list for PBXNativeTarget "TopShelfExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5000080238F0001 /* Debug */,
+				A5000081238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
