@@ -1,60 +1,30 @@
-import TVServices
+@preconcurrency import TVServices
 
-class TopShelfContentProvider: TVTopShelfContentProvider {
+@objc(TopShelfContentProvider)
+final class TopShelfContentProvider: TVTopShelfContentProvider, @unchecked Sendable {
 
-    private let service = CinecentaService()
-
+    // Return simple test content using sectioned content API
     override func loadTopShelfContent() async -> TVTopShelfContent? {
-        do {
-            // Fetch movies with upcoming showtimes
-            let allMovies = try await service.fetchMovies()
-            let upcomingMovies = allMovies.filter { $0.nextShowtime != nil }
+        // Use a simple, known-working poster image
+        let testImageURL = URL(string: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg")!
 
-            // Create inset content items for the carousel
-            var items: [TVTopShelfInsetContent.Item] = []
+        let item1 = TVTopShelfSectionedItem(identifier: "test-1")
+        item1.title = "Test Movie 1"
+        item1.setImageURL(testImageURL, for: .screenScale1x)
+        item1.setImageURL(testImageURL, for: .screenScale2x)
+        item1.imageShape = .poster
 
-            for movie in upcomingMovies.prefix(10) {
-                let item = TVTopShelfInsetContent.Item(identifier: movie.id.uuidString)
-                item.title = movie.displayTitle
+        let item2 = TVTopShelfSectionedItem(identifier: "test-2")
+        item2.title = "Test Movie 2"
+        item2.setImageURL(testImageURL, for: .screenScale1x)
+        item2.setImageURL(testImageURL, for: .screenScale2x)
+        item2.imageShape = .poster
 
-                // Use backdrop if available, otherwise poster
-                if let backdropURL = movie.backdropURL {
-                    item.setImageURL(backdropURL, for: .screenScale1x)
-                    item.setImageURL(backdropURL, for: .screenScale2x)
-                    item.imageShape = .hdtv
-                } else if let posterURL = movie.bestPosterURL {
-                    item.setImageURL(posterURL, for: .screenScale1x)
-                    item.setImageURL(posterURL, for: .screenScale2x)
-                    item.imageShape = .poster
-                }
+        // Create a section with the items
+        let section = TVTopShelfItemCollection(items: [item1, item2])
+        section.title = "Now Showing"
 
-                // Add next showtime as secondary text if available
-                if let nextShowtime = movie.nextShowtime {
-                    let formatter = RelativeDateTimeFormatter()
-                    formatter.unitsStyle = .abbreviated
-                    item.setTitle(movie.displayTitle, for: .primary)
-                    item.setTitle(formatShowtime(nextShowtime.startDate), for: .secondary)
-                }
-
-                // Deep link to open movie detail in the app
-                if let actionURL = URL(string: "cinecenta://movie/\(movie.id.uuidString)") {
-                    item.displayAction = TVTopShelfAction(url: actionURL)
-                    item.playAction = TVTopShelfAction(url: actionURL)
-                }
-
-                items.append(item)
-            }
-
-            guard !items.isEmpty else {
-                return nil
-            }
-
-            return TVTopShelfInsetContent(items: items)
-
-        } catch {
-            print("TopShelf: Failed to load content - \(error)")
-            return nil
-        }
+        return TVTopShelfSectionedContent(sections: [section])
     }
 
     private func formatShowtime(_ date: Date) -> String {
