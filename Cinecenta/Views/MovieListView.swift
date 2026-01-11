@@ -264,6 +264,8 @@ struct MovieRowView: View {
                     if let genre = tmdb.genres.first {
                         Text(genre)
                             .font(.caption)
+                            .lineLimit(1)
+                            .fixedSize()
                             .padding(.horizontal, 6)
                             .padding(.vertical, 2)
                             .background(.quaternary)
