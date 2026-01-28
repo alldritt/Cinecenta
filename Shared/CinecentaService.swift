@@ -1,5 +1,79 @@
 import Foundation
 
+// MARK: - HTML Entity Decoding
+
+extension String {
+    /// Decodes HTML character entities (e.g., &amp; -> &, &#39; -> ')
+    var htmlDecoded: String {
+        guard contains("&") else { return self }
+
+        var result = self
+
+        // Named entities
+        let namedEntities: [String: String] = [
+            "&amp;": "&",
+            "&lt;": "<",
+            "&gt;": ">",
+            "&quot;": "\"",
+            "&apos;": "'",
+            "&nbsp;": " ",
+            "&ndash;": "–",
+            "&mdash;": "—",
+            "&lsquo;": "'",
+            "&rsquo;": "'",
+            "&ldquo;": "\u{201C}",
+            "&rdquo;": "\u{201D}",
+            "&hellip;": "…",
+            "&copy;": "©",
+            "&reg;": "®",
+            "&trade;": "™",
+            "&eacute;": "é",
+            "&egrave;": "è",
+            "&agrave;": "à",
+            "&ocirc;": "ô",
+            "&uuml;": "ü"
+        ]
+
+        for (entity, character) in namedEntities {
+            result = result.replacingOccurrences(of: entity, with: character)
+        }
+
+        // Numeric entities (decimal): &#39; -> '
+        if let regex = try? NSRegularExpression(pattern: "&#(\\d+);") {
+            let range = NSRange(result.startIndex..., in: result)
+            let matches = regex.matches(in: result, range: range).reversed()
+            for match in matches {
+                if let codeRange = Range(match.range(at: 1), in: result),
+                   let code = Int(result[codeRange]),
+                   let scalar = Unicode.Scalar(code) {
+                    let char = String(Character(scalar))
+                    if let fullRange = Range(match.range, in: result) {
+                        result.replaceSubrange(fullRange, with: char)
+                    }
+                }
+            }
+        }
+
+        // Numeric entities (hexadecimal): &#x27; -> '
+        if let regex = try? NSRegularExpression(pattern: "&#[xX]([0-9a-fA-F]+);") {
+            let range = NSRange(result.startIndex..., in: result)
+            let matches = regex.matches(in: result, range: range).reversed()
+            for match in matches {
+                if let codeRange = Range(match.range(at: 1), in: result),
+                   let code = Int(result[codeRange], radix: 16),
+                   let scalar = Unicode.Scalar(code) {
+                    let char = String(Character(scalar))
+                    if let fullRange = Range(match.range, in: result) {
+                        result.replaceSubrange(fullRange, with: char)
+                    }
+                }
+            }
+        }
+
+        return result
+    }
+}
+
 /// Errors that can occur when fetching movie data
 enum CinecentaError: LocalizedError {
     case invalidURL

@@ -84,6 +84,8 @@ struct TMDbMovieDetail: Codable {
     let genres: [TMDbGenre]?
     let credits: TMDbCredits?
     let videos: TMDbVideosResponse?
+    let externalIds: TMDbExternalIds?
+    let watchProviders: TMDbWatchProvidersResponse?
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview, tagline, runtime, genres, credits, videos
@@ -93,6 +95,25 @@ struct TMDbMovieDetail: Codable {
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case externalIds = "external_ids"
+        case watchProviders = "watch/providers"
+    }
+}
+
+/// External IDs for a movie (IMDb, etc.)
+struct TMDbExternalIds: Codable {
+    let imdbId: String?
+    let wikidataId: String?
+    let facebookId: String?
+    let instagramId: String?
+    let twitterId: String?
+
+    enum CodingKeys: String, CodingKey {
+        case imdbId = "imdb_id"
+        case wikidataId = "wikidata_id"
+        case facebookId = "facebook_id"
+        case instagramId = "instagram_id"
+        case twitterId = "twitter_id"
     }
 }
 
@@ -149,11 +170,158 @@ struct TMDbVideo: Codable, Identifiable {
     }
 }
 
+// MARK: - Watch Providers API Response
+
+struct TMDbWatchProvidersResponse: Codable {
+    let results: [String: TMDbCountryWatchProviders]?
+}
+
+struct TMDbCountryWatchProviders: Codable {
+    let link: String?
+    let flatrate: [TMDbWatchProvider]?  // Streaming
+    let rent: [TMDbWatchProvider]?
+    let buy: [TMDbWatchProvider]?
+}
+
+struct TMDbWatchProvider: Codable {
+    let providerId: Int
+    let providerName: String
+    let logoPath: String?
+    let displayPriority: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case providerId = "provider_id"
+        case providerName = "provider_name"
+        case logoPath = "logo_path"
+        case displayPriority = "display_priority"
+    }
+}
+
 // MARK: - App-Facing TMDb Data Model
+
+/// App-facing watch provider info
+struct WatchProvider: Codable, Equatable, Identifiable {
+    let id: Int
+    let name: String
+    let logoURL: URL?
+
+    /// Common streaming service SF Symbols (fallback for when logo fails to load)
+    var systemImageName: String {
+        let lowercaseName = name.lowercased()
+        if lowercaseName.contains("netflix") { return "play.tv" }
+        if lowercaseName.contains("amazon") || lowercaseName.contains("prime") { return "play.tv" }
+        if lowercaseName.contains("disney") { return "play.tv" }
+        if lowercaseName.contains("apple") { return "apple.logo" }
+        if lowercaseName.contains("hulu") { return "play.tv" }
+        if lowercaseName.contains("hbo") || lowercaseName.contains("max") { return "play.tv" }
+        if lowercaseName.contains("paramount") { return "play.tv" }
+        if lowercaseName.contains("peacock") { return "play.tv" }
+        if lowercaseName.contains("crave") { return "play.tv" }
+        return "tv"
+    }
+
+    /// URL scheme to check if the streaming app is installed
+    var appURLScheme: String? {
+        let lowercaseName = name.lowercased()
+
+        // Map provider names to their app URL schemes
+        if lowercaseName.contains("netflix") { return "nflx://" }
+        if lowercaseName.contains("amazon") || lowercaseName.contains("prime video") { return "primevideo://" }
+        if lowercaseName.contains("disney") { return "disneyplus://" }
+        if lowercaseName.contains("apple tv") { return "com.apple.tv://" }
+        if lowercaseName.contains("hulu") { return "hulu://" }
+        if lowercaseName == "max" || lowercaseName.contains("hbo max") { return "max://" }
+        if lowercaseName.contains("paramount") { return "paramountplus://" }
+        if lowercaseName.contains("peacock") { return "peacock://" }
+        if lowercaseName.contains("crave") { return "crave://" }
+        if lowercaseName.contains("plex") { return "plex://" }
+        if lowercaseName.contains("criterion") { return "criterionchannel://" }
+        if lowercaseName.contains("mubi") { return "mubi://" }
+        if lowercaseName.contains("shudder") { return "shudder://" }
+        if lowercaseName.contains("tubi") { return "tubitv://" }
+        if lowercaseName.contains("kanopy") { return "kanopy://" }
+
+        return nil
+    }
+
+    /// URL to check if app is installed
+    var appURL: URL? {
+        guard let scheme = appURLScheme else { return nil }
+        return URL(string: scheme)
+    }
+
+    /// Generate a deep link URL to search for a specific movie in the streaming app
+    /// Uses Universal Links (web URLs) that iOS will open in the app if installed
+    func searchURL(for movieTitle: String) -> URL? {
+        let lowercaseName = name.lowercased()
+        let encodedTitle = movieTitle.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? movieTitle
+
+        // Web URLs that support Universal Links and include search
+        if lowercaseName.contains("netflix") {
+            return URL(string: "https://www.netflix.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("amazon") || lowercaseName.contains("prime video") {
+            return URL(string: "https://www.primevideo.com/search/ref=atv_nb_sr?phrase=\(encodedTitle)")
+        }
+        if lowercaseName.contains("disney") {
+            return URL(string: "https://www.disneyplus.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("apple tv") {
+            return URL(string: "https://tv.apple.com/search?term=\(encodedTitle)")
+        }
+        if lowercaseName.contains("hulu") {
+            return URL(string: "https://www.hulu.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName == "max" || lowercaseName.contains("hbo max") {
+            return URL(string: "https://www.max.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("paramount") {
+            return URL(string: "https://www.paramountplus.com/search/?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("peacock") {
+            return URL(string: "https://www.peacocktv.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("crave") {
+            return URL(string: "https://www.crave.ca/en/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("tubi") {
+            return URL(string: "https://tubitv.com/search/\(encodedTitle)")
+        }
+        if lowercaseName.contains("mubi") {
+            return URL(string: "https://mubi.com/search?query=\(encodedTitle)")
+        }
+        if lowercaseName.contains("criterion") {
+            return URL(string: "https://www.criterionchannel.com/search?q=\(encodedTitle)")
+        }
+        if lowercaseName.contains("kanopy") {
+            return URL(string: "https://www.kanopy.com/en/search?query=\(encodedTitle)")
+        }
+
+        return nil
+    }
+}
+
+/// Watch availability for a movie
+struct WatchAvailability: Codable, Equatable {
+    let streaming: [WatchProvider]   // Subscription streaming (flatrate)
+    let rent: [WatchProvider]
+    let buy: [WatchProvider]
+    let tmdbLink: URL?               // Link to TMDb page with deep links
+
+    var isEmpty: Bool {
+        streaming.isEmpty && rent.isEmpty && buy.isEmpty
+    }
+
+    var hasStreaming: Bool { !streaming.isEmpty }
+    var hasRentOrBuy: Bool { !rent.isEmpty || !buy.isEmpty }
+
+    static let empty = WatchAvailability(streaming: [], rent: [], buy: [], tmdbLink: nil)
+}
 
 /// Enriched movie data from TMDb, stored alongside the base Movie
 struct TMDbMovieInfo: Codable, Equatable {
     let tmdbId: Int
+    let imdbID: String?
     let overview: String?
     let tagline: String?
     let runtime: Int?
@@ -166,6 +334,7 @@ struct TMDbMovieInfo: Codable, Equatable {
     let backdropURL: URL?
     let trailerURL: URL?
     let releaseDate: String?
+    let watchAvailability: WatchAvailability?
 
     /// Human-readable runtime string
     var formattedRuntime: String? {
@@ -206,6 +375,9 @@ enum TitleMatcher {
         var extractedYear: Int?
         var isSpecialEdition = false
 
+        // Remove cinema event markers (e.g., "Presented by...", "Q&A with...")
+        removeEventMarkers(from: &workingTitle)
+
         // Extract year from title (e.g., "Dune (2021)" or "Dune 2021")
         extractedYear = extractYear(from: &workingTitle)
 
@@ -221,6 +393,42 @@ enum TitleMatcher {
             year: extractedYear,
             isSpecialEdition: isSpecialEdition
         )
+    }
+
+    /// Remove cinema event markers from title (e.g., "The Room – Presented by Greg Sestero" -> "The Room")
+    private static func removeEventMarkers(from title: inout String) {
+        // Patterns that indicate event-specific text follows
+        // Using various dash types: - – —
+        let eventPatterns = [
+            #"\s*[–—\-]\s*[Pp]resented\s+by\s+.*$"#,      // – Presented by ...
+            #"\s*[–—\-]\s*[Ii]ntroduced\s+by\s+.*$"#,    // – Introduced by ...
+            #"\s*[–—\-]\s*[Hh]osted\s+by\s+.*$"#,        // – Hosted by ...
+            #"\s*[–—\-]\s*[Ww]ith\s+.*$"#,               // – With ...
+            #"\s*[–—\-]\s*[Ll]ive\s+.*$"#,               // – Live ...
+            #"\s*[–—\-]\s*[Ss]pecial\s+.*$"#,            // – Special ...
+            #"\s*\+\s*[Ss]hort[s]?.*$"#,                  // + Short / + Shorts
+            #"\s*\+\s*Q&?A.*$"#,                          // + Q&A / + QA
+            #"\s*[–—\-]\s*Q&?A.*$"#,                      // – Q&A
+            #"\s*\([Ww]ith\s+Q&?A\)$"#,                   // (with Q&A)
+            #"\s*\([Ll]ive\s+[Cc]ommentary\)$"#,         // (Live Commentary)
+            #"\s*[–—\-]\s*[Ss]ing[\s\-]?[Aa]long.*$"#,   // – Sing-Along / Singalong
+            #"\s*[–—\-]\s*[Dd]ouble\s+[Ff]eature.*$"#,   // – Double Feature
+            #"\s*[–—\-]\s*[Mm]arathon.*$"#,              // – Marathon
+            #"\s*[–—\-]\s*[Ff]ree\s+[Ss]creening.*$"#,   // – Free Screening
+            #"\s*[–—\-]\s*[Ss]neak\s+[Pp]review.*$"#,    // – Sneak Preview
+            #"\s*[–—\-]\s*[Aa]dvance\s+[Ss]creening.*$"#, // – Advance Screening
+            #"\s*:\s*[Tt]he\s+[Ee]xperience.*$"#,        // : The Experience
+        ]
+
+        for pattern in eventPatterns {
+            if let regex = try? NSRegularExpression(pattern: pattern) {
+                title = regex.stringByReplacingMatches(
+                    in: title,
+                    range: NSRange(title.startIndex..., in: title),
+                    withTemplate: ""
+                ).trimmingCharacters(in: .whitespaces)
+            }
+        }
     }
 
     /// Extract year from title string, modifying the input to remove the year
@@ -269,9 +477,11 @@ enum TitleMatcher {
             "unrated",
             "remastered",
             "restored",
+            "reconstructed",
             "anniversary edition",
             "collector's edition",
             "4k restoration",
+            "4k remaster",
             "criterion"
         ]
 
@@ -539,7 +749,7 @@ actor TMDbService {
             throw TMDbError.invalidAPIKey
         }
 
-        guard let url = URL(string: "\(TMDbConfig.baseURL)/movie/\(tmdbId)?api_key=\(TMDbConfig.apiKey)&append_to_response=credits,videos") else {
+        guard let url = URL(string: "\(TMDbConfig.baseURL)/movie/\(tmdbId)?api_key=\(TMDbConfig.apiKey)&append_to_response=credits,videos,external_ids,watch/providers") else {
             throw TMDbError.networkError(NSError(domain: "Invalid URL", code: 0))
         }
 
@@ -590,8 +800,28 @@ actor TMDbService {
     /// Fetch movie info directly from API (no cache)
     private func fetchMovieInfoFromAPI(title: String) async -> TMDbMovieInfo? {
         do {
-            // Search for the movie
-            let results = try await searchMovie(title: title)
+            // Parse the title to remove special edition markers, event text, etc.
+            let parsedTitle = TitleMatcher.parseTitle(title)
+
+            // First, try searching with the cleaned/normalized title
+            var results = try await searchMovie(title: parsedTitle.normalized)
+
+            // If no results with normalized title, try the original
+            if results.isEmpty && parsedTitle.normalized != title.lowercased() {
+                results = try await searchMovie(title: title)
+            }
+
+            // If still no results, try without leading article (The, A, An)
+            if results.isEmpty {
+                let titleWithoutArticle = parsedTitle.normalized
+                    .replacingOccurrences(of: "^the ", with: "", options: [.regularExpression, .caseInsensitive])
+                    .replacingOccurrences(of: "^a ", with: "", options: [.regularExpression, .caseInsensitive])
+                    .replacingOccurrences(of: "^an ", with: "", options: [.regularExpression, .caseInsensitive])
+
+                if titleWithoutArticle != parsedTitle.normalized {
+                    results = try await searchMovie(title: titleWithoutArticle)
+                }
+            }
 
             // Find best match - prefer exact title match
             guard let bestMatch = findBestMatch(for: title, in: results) else {
@@ -673,8 +903,12 @@ actor TMDbService {
             }
             .first
 
+        // Get watch providers for Canada (CA), fallback to US
+        let watchAvailability = createWatchAvailability(from: details.watchProviders)
+
         return TMDbMovieInfo(
             tmdbId: details.id,
+            imdbID: details.externalIds?.imdbId,
             overview: details.overview,
             tagline: details.tagline,
             runtime: details.runtime,
@@ -686,8 +920,43 @@ actor TMDbService {
             posterURL: posterURL,
             backdropURL: backdropURL,
             trailerURL: trailer?.youtubeURL,
-            releaseDate: details.releaseDate
+            releaseDate: details.releaseDate,
+            watchAvailability: watchAvailability
         )
+    }
+
+    /// Extract watch availability from TMDb response
+    private func createWatchAvailability(from response: TMDbWatchProvidersResponse?) -> WatchAvailability? {
+        guard let results = response?.results else { return nil }
+
+        // Try Canada first, then US as fallback
+        let countryProviders = results["CA"] ?? results["US"]
+        guard let providers = countryProviders else { return nil }
+
+        func convertProviders(_ tmdbProviders: [TMDbWatchProvider]?) -> [WatchProvider] {
+            guard let tmdbProviders = tmdbProviders else { return [] }
+            return tmdbProviders
+                .sorted { ($0.displayPriority ?? 999) < ($1.displayPriority ?? 999) }
+                .map { provider in
+                    let logoURL = provider.logoPath.flatMap {
+                        URL(string: "\(TMDbConfig.imageBaseURL)/\(TMDbConfig.PosterSize.small.rawValue)\($0)")
+                    }
+                    return WatchProvider(
+                        id: provider.providerId,
+                        name: provider.providerName,
+                        logoURL: logoURL
+                    )
+                }
+        }
+
+        let availability = WatchAvailability(
+            streaming: convertProviders(providers.flatrate),
+            rent: convertProviders(providers.rent),
+            buy: convertProviders(providers.buy),
+            tmdbLink: providers.link.flatMap { URL(string: $0) }
+        )
+
+        return availability.isEmpty ? nil : availability
     }
 }
 
@@ -698,6 +967,10 @@ actor TMDbCache {
     static let shared = TMDbCache()
 
     private let cacheFileName = "tmdb_cache.json"
+    private let cacheVersionKey = "tmdb_cache_version"
+    /// Increment this when TMDbMovieInfo structure changes
+    private let currentCacheVersion = 3  // Incremented for watchAvailability field
+
     private var memoryCache: [String: TMDbMovieInfo] = [:]
     private var cacheLoaded = false
 
@@ -730,6 +1003,15 @@ actor TMDbCache {
 
     private func loadFromDisk() {
         cacheLoaded = true
+
+        // Check cache version - clear if outdated
+        let storedVersion = UserDefaults.standard.integer(forKey: cacheVersionKey)
+        if storedVersion != currentCacheVersion {
+            clear()
+            UserDefaults.standard.set(currentCacheVersion, forKey: cacheVersionKey)
+            return
+        }
+
         guard let url = cacheFileURL,
               let data = try? Data(contentsOf: url),
               let cached = try? JSONDecoder().decode([String: TMDbMovieInfo].self, from: data) else {

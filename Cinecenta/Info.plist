@@ -13,6 +13,26 @@
 			</array>
 		</dict>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>nflx</string>
+		<string>primevideo</string>
+		<string>disneyplus</string>
+		<string>hulu</string>
+		<string>hbomax</string>
+		<string>max</string>
+		<string>paramountplus</string>
+		<string>peacock</string>
+		<string>crave</string>
+		<string>appletv</string>
+		<string>com.apple.tv</string>
+		<string>plex</string>
+		<string>criterionchannel</string>
+		<string>mubi</string>
+		<string>shudder</string>
+		<string>tubitv</string>
+		<string>kanopy</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

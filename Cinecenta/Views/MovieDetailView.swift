@@ -23,11 +23,19 @@ struct MovieDetailView: View {
                         castSection
                     }
                 }
-                showtimesSection
+                if !movie.showtimes.isEmpty {
+                    showtimesSection
+                }
+                if movie.tmdbInfo?.watchAvailability != nil {
+                    streamingSection
+                }
+                if movie.tmdbInfo != nil {
+                    connectionsSection
+                }
             }
             .padding()
         }
-        .navigationTitle(movie.title)
+        .navigationTitle(movie.displayTitle)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -41,8 +49,20 @@ struct MovieDetailView: View {
         }
     }
 
+    // MARK: - Connections Section
+
+    @ViewBuilder
+    private var connectionsSection: some View {
+        NavigationLink {
+            MovieConnectionsDetailView(movie: movie)
+        } label: {
+            MovieConnectionsPreview(movie: movie)
+        }
+        .buttonStyle(.plain)
+    }
+
     private var shareText: String {
-        var text = "\(movie.title) at Cinecenta\n\n"
+        var text = "\(movie.displayTitle) at Cinecenta\n\n"
 
         for dateGroup in movie.showtimesByDate {
             let dateLabel: String
@@ -91,7 +111,7 @@ struct MovieDetailView: View {
 
             // Title and tagline
             VStack(alignment: .leading, spacing: 4) {
-                Text(movie.title)
+                Text(movie.displayTitle)
                     .font(.title)
                     .fontWeight(.bold)
 
@@ -262,6 +282,49 @@ struct MovieDetailView: View {
                     }
                     .font(.subheadline)
                 }
+            }
+        }
+    }
+
+    // MARK: - Streaming Section
+
+    @ViewBuilder
+    private var streamingSection: some View {
+        if let availability = movie.tmdbInfo?.watchAvailability {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Where to Watch")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                if availability.hasStreaming {
+                    WatchProviderRow(title: "Stream", providers: availability.streaming, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                if !availability.rent.isEmpty {
+                    WatchProviderRow(title: "Rent", providers: availability.rent, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                if !availability.buy.isEmpty {
+                    WatchProviderRow(title: "Buy", providers: availability.buy, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                // TMDb link and JustWatch attribution
+                if let link = availability.tmdbLink {
+                    Link(destination: link) {
+                        HStack {
+                            Text("View all options on TMDb")
+                                .font(.caption)
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption2)
+                        }
+                        .foregroundStyle(.blue)
+                    }
+                }
+
+                // Required JustWatch attribution
+                Text("Streaming data provided by JustWatch")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
             }
         }
     }
@@ -459,7 +522,7 @@ struct ReminderSelectionSheet: View {
 
             // Movie info
             VStack(spacing: 4) {
-                Text(movie.title)
+                Text(movie.displayTitle)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                 Text(showtime.startDate.formatted(date: .abbreviated, time: .shortened))
@@ -556,6 +619,456 @@ struct FlowLayout: Layout {
     }
 }
 
+// MARK: - Connected Movie Detail View
+
+/// A detail view for movies discovered through the connection graph
+/// Fetches TMDb info on load since these aren't from Cinecenta's schedule
+struct ConnectedMovieDetailView: View {
+    let movieTitle: String
+    let movieYear: Int?
+
+    @State private var movie: Movie?
+    @State private var isLoading = true
+
+    private let tmdbService = TMDbService()
+
+    var body: some View {
+        Group {
+            if isLoading {
+                ProgressView("Loading movie info...")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else if let movie = movie {
+                MovieDetailContent(movie: movie)
+            } else {
+                ContentUnavailableView {
+                    Label("Movie Not Found", systemImage: "film")
+                } description: {
+                    Text("Could not find information for \"\(movieTitle)\"")
+                }
+            }
+        }
+        .navigationTitle(movieTitle)
+        .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await loadMovieInfo()
+        }
+    }
+
+    private func loadMovieInfo() async {
+        // Fetch TMDb info
+        let tmdbInfo = await tmdbService.fetchMovieInfo(for: movieTitle)
+
+        await MainActor.run {
+            // Create a Movie with the fetched info but no showtimes
+            self.movie = Movie(
+                title: movieTitle,
+                imageURL: tmdbInfo?.posterURL,
+                showtimes: [],
+                tmdbInfo: tmdbInfo
+            )
+            self.isLoading = false
+        }
+    }
+}
+
+/// Content view that displays movie details - shared between MovieDetailView and ConnectedMovieDetailView
+private struct MovieDetailContent: View {
+    let movie: Movie
+
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                headerSection
+                if movie.tmdbInfo != nil {
+                    movieInfoSection
+                    trailerSection
+                    if movie.tmdbInfo?.overview != nil {
+                        synopsisSection
+                    }
+                    if !(movie.tmdbInfo?.topCast.isEmpty ?? true) {
+                        castSection
+                    }
+                }
+                if !movie.showtimes.isEmpty {
+                    showtimesSection
+                }
+                if movie.tmdbInfo?.watchAvailability != nil {
+                    streamingSection
+                }
+                if movie.tmdbInfo != nil {
+                    connectionsSection
+                }
+            }
+            .padding()
+        }
+    }
+
+    // MARK: - Header Section
+
+    @ViewBuilder
+    private var headerSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            if let backdropURL = movie.backdropURL {
+                AsyncImage(url: backdropURL) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                    case .failure:
+                        posterFallback
+                    case .empty:
+                        ProgressView()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 200)
+                    @unknown default:
+                        posterFallback
+                    }
+                }
+            } else {
+                posterFallback
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(movie.displayTitle)
+                    .font(.title)
+                    .fontWeight(.bold)
+
+                if let tagline = movie.tmdbInfo?.tagline, !tagline.isEmpty {
+                    Text(tagline)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .italic()
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var posterFallback: some View {
+        if let posterURL = movie.imageURL {
+            AsyncImage(url: posterURL) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                case .failure, .empty:
+                    placeholderImage
+                @unknown default:
+                    placeholderImage
+                }
+            }
+        } else {
+            placeholderImage
+        }
+    }
+
+    private var placeholderImage: some View {
+        RoundedRectangle(cornerRadius: 12)
+            .fill(.quaternary)
+            .frame(height: 150)
+            .overlay {
+                Image(systemName: "film")
+                    .font(.largeTitle)
+                    .foregroundStyle(.tertiary)
+            }
+    }
+
+    // MARK: - Movie Info Section
+
+    @ViewBuilder
+    private var movieInfoSection: some View {
+        if let tmdb = movie.tmdbInfo {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 16) {
+                    if let releaseDate = tmdb.releaseDate {
+                        Label(String(releaseDate.prefix(4)), systemImage: "calendar")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    if let runtime = tmdb.runtime, runtime > 0 {
+                        Label("\(runtime) min", systemImage: "clock")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    if let rating = tmdb.rating, rating > 0 {
+                        Label(String(format: "%.1f", rating), systemImage: "star.fill")
+                            .font(.subheadline)
+                            .foregroundStyle(.yellow)
+                    }
+                }
+
+                if !tmdb.genres.isEmpty {
+                    Text(tmdb.genres.joined(separator: " • "))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                if let director = tmdb.director {
+                    Text("Director: \(director)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
+
+    // MARK: - Trailer Section
+
+    @ViewBuilder
+    private var trailerSection: some View {
+        if let trailerURL = movie.tmdbInfo?.trailerURL,
+           let videoID = YouTubeHelper.extractVideoID(from: trailerURL) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Trailer")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+
+                YouTubePlayerView(YouTubePlayer(source: .video(id: videoID)))
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+    }
+
+    // MARK: - Synopsis Section
+
+    @ViewBuilder
+    private var synopsisSection: some View {
+        if let overview = movie.tmdbInfo?.overview, !overview.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Synopsis")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+
+                Text(overview)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Cast Section
+
+    @ViewBuilder
+    private var castSection: some View {
+        if let tmdb = movie.tmdbInfo {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Cast & Crew")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+
+                if let director = tmdb.director {
+                    Text("Director: \(director)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+
+                if !tmdb.topCast.isEmpty {
+                    Text(tmdb.topCast.joined(separator: ", "))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
+
+    // MARK: - Streaming Section
+
+    @ViewBuilder
+    private var streamingSection: some View {
+        if let availability = movie.tmdbInfo?.watchAvailability {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Where to Watch")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+
+                if availability.hasStreaming {
+                    WatchProviderRow(title: "Stream", providers: availability.streaming, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                if !availability.rent.isEmpty {
+                    WatchProviderRow(title: "Rent", providers: availability.rent, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                if !availability.buy.isEmpty {
+                    WatchProviderRow(title: "Buy", providers: availability.buy, movieTitle: movie.displayTitle, tmdbLink: availability.tmdbLink)
+                }
+
+                // TMDb link and JustWatch attribution
+                if let link = availability.tmdbLink {
+                    Link(destination: link) {
+                        HStack {
+                            Text("View all options on TMDb")
+                                .font(.caption)
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption2)
+                        }
+                        .foregroundStyle(.blue)
+                    }
+                }
+
+                // Required JustWatch attribution
+                Text("Streaming data provided by JustWatch")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
+        }
+    }
+
+    // MARK: - Connections Section
+
+    @ViewBuilder
+    private var connectionsSection: some View {
+        NavigationLink {
+            MovieConnectionsDetailView(movie: movie)
+        } label: {
+            MovieConnectionsPreview(movie: movie)
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - Showtimes Section
+
+    @ViewBuilder
+    private var showtimesSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Showtimes")
+                .font(.title2)
+                .fontWeight(.semibold)
+
+            Text("Not currently showing at Cinecenta")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
+// MARK: - Watch Provider Row
+
+/// Displays a row of streaming providers with their logos
+struct WatchProviderRow: View {
+    let title: String
+    let providers: [WatchProvider]
+    let movieTitle: String
+    let tmdbLink: URL?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundStyle(.secondary)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(providers) { provider in
+                        WatchProviderBadge(provider: provider, movieTitle: movieTitle, tmdbLink: tmdbLink)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// Individual streaming provider badge with logo
+struct WatchProviderBadge: View {
+    let provider: WatchProvider
+    let movieTitle: String
+    let tmdbLink: URL?
+
+    @Environment(\.openURL) private var openURL
+
+    /// Check if the streaming app is installed
+    private var isAppInstalled: Bool {
+        guard let url = provider.appURL else { return false }
+        return UIApplication.shared.canOpenURL(url)
+    }
+
+    /// Whether we have a search URL for this provider
+    private var hasSearchURL: Bool {
+        provider.searchURL(for: movieTitle) != nil
+    }
+
+    var body: some View {
+        Button {
+            openProvider()
+        } label: {
+            VStack(spacing: 4) {
+                ZStack(alignment: .bottomTrailing) {
+                    if let logoURL = provider.logoURL {
+                        AsyncImage(url: logoURL) { phase in
+                            switch phase {
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 44, height: 44)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            case .failure:
+                                providerFallback
+                            case .empty:
+                                ProgressView()
+                                    .frame(width: 44, height: 44)
+                            @unknown default:
+                                providerFallback
+                            }
+                        }
+                    } else {
+                        providerFallback
+                    }
+
+                    // Show indicator if we can deep link to this provider
+                    if hasSearchURL || isAppInstalled {
+                        Image(systemName: "arrow.up.forward.app.fill")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.white)
+                            .padding(2)
+                            .background(Color.blue)
+                            .clipShape(Circle())
+                            .offset(x: 4, y: 4)
+                    }
+                }
+
+                Text(provider.name)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .frame(width: 60)
+            }
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var providerFallback: some View {
+        RoundedRectangle(cornerRadius: 10)
+            .fill(.quaternary)
+            .frame(width: 44, height: 44)
+            .overlay {
+                Image(systemName: provider.systemImageName)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+            }
+    }
+
+    private func openProvider() {
+        // Try to open with a search URL (Universal Links will open in app if installed)
+        if let searchURL = provider.searchURL(for: movieTitle) {
+            openURL(searchURL)
+        } else if let tmdbLink = tmdbLink {
+            // Fall back to TMDb link which has deep links
+            openURL(tmdbLink)
+        }
+    }
+}
+
 #Preview {
     NavigationStack {
         MovieDetailView(movie: Movie(
@@ -567,5 +1080,11 @@ struct FlowLayout: Layout {
                 Showtime(startDate: Date().addingTimeInterval(86400), endDate: nil)
             ]
         ))
+    }
+}
+
+#Preview("Connected Movie") {
+    NavigationStack {
+        ConnectedMovieDetailView(movieTitle: "Blade Runner", movieYear: 1982)
     }
 }

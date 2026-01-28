@@ -176,7 +176,7 @@ struct MovieRowView: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(alignment: .top, spacing: 12) {
             posterImage
             movieInfo
 
@@ -240,7 +240,7 @@ struct MovieRowView: View {
 
     private var movieInfo: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(movie.title)
+            Text(movie.displayTitle)
                 .font(.headline)
                 .lineLimit(2)
 
